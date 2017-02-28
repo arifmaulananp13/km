@@ -23,6 +23,8 @@
             <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+				<img src="<?php echo base_url()?>upload/image/<?php echo $this->session->userdata('profile_picture')?>" class="user-image" alt="User Image">
+                  <span class="hidden-xs"><?php echo $this->session->userdata('nama_user')?>
 					</span>
                 </a>
                 <ul class="dropdown-menu">
