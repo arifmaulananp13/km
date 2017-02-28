@@ -23,7 +23,6 @@
             <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
-                  <?php echo $this->session->userdata('nama_user')?>-<?php echo $this->session->userdata('level')?>
 					</span>
                 </a>
                 <ul class="dropdown-menu">
