@@ -61,15 +61,38 @@
           </div>
 
           <ul class="sidebar-menu">
-            <li class="header">BAP dan RPS</li>
-            <li class="{active_1}"><a href="{l_inputbap}"><span>Input BAP</span></a></li>
-            <li class="{active_2}"><a href="{l_verifbap}"><span>Verifikasi BAP</span></a></li>
-            <li class="{active_3}"><a href="{l_inputrps}"><span>Input RPS</span></a></li>
-			<li class="{active_6}"><a href="<?php echo base_url('baprps/jadwal'); ?>"><span>Input Jadwal Dosen</span></a></li>
-            <li class="{active_4}"><a href="{l_lihatrps}"><span>Lihat RPS</span></a></li>
-            <li class="{active_5}"><a href="{l_grafik}"><span>Table</span></a></li>
-			<li class="{active_7}"><a href="<?php echo base_url('baprps/forum'); ?>">Forum<span></span></a></li>         
-          </ul>
+			 <li class="treeview">
+			  <a href="#">
+				<i class="fa fa-folder"></i> <span>BAP dan RPS</span>
+				<span class="pull-right-container">
+				  <i class="fa fa-angle-left pull-right"></i>
+				</span>
+			  </a>
+			<ul class="treeview-menu">
+            <li class="{active_1}"><a href="{l_inputbap}"><i class="fa fa-circle-o"></i><span>Input BAP</span></a></li>
+            <li class="{active_2}"><a href="{l_verifbap}"><i class="fa fa-circle-o"></i><span>Verifikasi BAP</span></a></li>
+            <li class="{active_3}"><a href="{l_inputrps}"><i class="fa fa-circle-o"></i><span>Input RPS</span></a></li>
+			<li class="{active_6}"><a href="<?php echo base_url('baprps/jadwal'); ?>"><i class="fa fa-circle-o"></i><span>Input Jadwal Dosen</span></a></li>
+            <li class="{active_4}"><a href="{l_lihatrps}"><i class="fa fa-circle-o"></i><span>Lihat RPS</span></a></li>
+            <li class="{active_5}"><a href="{l_grafik}"><i class="fa fa-circle-o"></i><span>Table</span></a></li>       
+			</ul>
+			</li>
+			<li class="treeview">
+			  <a href="#">
+				<i class="fa fa-folder"></i> <span>Detail Nilai</span>
+				<span class="pull-right-container">
+				  <i class="fa fa-angle-left pull-right"></i>
+				</span>
+			  </a>
+			<ul class="treeview-menu">
+            <li class="{active_11}"><a href="<?php echo base_url(). 'nilai/input_nilai'; ?>"><i class="fa fa-circle-o"></i><span>Input Nilai Harian</span></a></li>
+            <li class="{active_8}"><a href="<?php echo base_url(). 'excel/input_nilai_akhir'; ?>"><i class="fa fa-circle-o"></i><span>Input Nilai Akhir</span></a></li>
+            <li class="{active_9}"><a href="<?php echo base_url(). 'nilai/lihat_nilai'; ?>"><i class="fa fa-circle-o"></i><span>Lihat Nilai Harian</span></a></li>
+            <li class="{active_10}"><a href="<?php echo base_url(). 'nilai/lihat_nilai_akhir'; ?>"><i class="fa fa-circle-o"></i><span>Lihat Nilai Akhir</span></a></li>
+		  	</ul>
+			</li>
+			<li class="{active_7}"><a href="<?php echo base_url('baprps/forum'); ?>">Forum<span></span></a></li>
+		  </ul>
 
         </section>
       </aside>
@@ -77,5 +100,7 @@
       <script src="{js_bs}"></script>
       <script src="{js_app}"></script>
       <script src="{js_slimscroll}"></script>
+
+	
+	  </html>
 	  
-</html>
