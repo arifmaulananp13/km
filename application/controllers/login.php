@@ -50,7 +50,8 @@ class Login extends CI_Controller{
 				$s['username']				= $user->username;
 				$s['password']				= $user->password;
 				$s['level']					= $user->level;
-				$s['profile_picture']		= $user->profile_picture;			
+				$s['profile_picture']		= $user->profile_picture;
+				$s['jadwal']				= $user->jadwal;	
 				$this->session->set_userdata($s);
 			}
 		}else{

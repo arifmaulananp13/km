@@ -8,7 +8,7 @@
 		  <div class="col-md-12 with-padding">
         <form class="box box-primary">
         	<div class="box-header with-border">
-        		Table
+        		Lihat Nilai Harian
         	</div>
         	<div class="box-body">
             <div class="col-md-12 form-group">
@@ -18,8 +18,8 @@
 				<th>Dosen</th>
 				<th>Mata Kuliah</th>
 				<th>Kelas</th>
-				<th>Status Verifikasi</th>
-				<th>Keterangan</th>
+				<th>Tanggal</th>
+				<th>Nilai</th>
 			</tr>
 			<?php
 			$no = 1;
@@ -30,8 +30,9 @@
 				<td><?php echo $u->dosen ?></td>
 				<td><?php echo $u->matkul ?></td>
 				<td><?php echo $u->kelas ?></td>
-				<td><?php echo $u->status ?></td>
-				<td><?php echo $u->ket ?></td>
+				<td><?php echo $u->no_tanggal ?></td>
+				<td><?php echo $u->nilai ?></td>
+				<td><code><a href="<?=base_url ()?>nilai/download/<?php echo $u->nilai ?>" >Download</a></code></td>
 			</tr>
 			<?php } ?>
 			</table>
@@ -41,5 +42,5 @@
         </form>
         </div>
         </section>
-		<div class="content-wrapper"> </div>
-	
+	</div>
+
