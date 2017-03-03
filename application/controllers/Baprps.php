@@ -205,7 +205,8 @@ class Baprps extends CI_Controller {
 		if ($this->session->userdata('level') == 'Dosen Koordinator'){
 		$data['title'] = "Table";
 		$data['active_5'] = "active";
-		$data['data']=$this->m_inputbap->table();
+		$data['dosen'] = $this->combobox_model->getDosen();
+		$data['matkul'] = $this->combobox_model->getMatkulAll();
 		view('rpsbap/grafik',$data);
 		}		
 		elseif($this->session->userdata('level') == 'Mahasiswa'){
@@ -220,7 +221,8 @@ class Baprps extends CI_Controller {
 		else{
 		$data['title'] = "Table";
 		$data['active_5'] = "active";
-		$data['data']=$this->m_inputbap->table();
+		$data['dosen'] = $this->combobox_model->getDosen();
+		$data['matkul'] = $this->combobox_model->getMatkulAll();
 		view('rpsbap/grafik',$data);
 		}
 		}
