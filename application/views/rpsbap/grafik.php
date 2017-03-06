@@ -6,7 +6,7 @@
         </section>
         <section class="content">
 		  <div class="col-md-12 with-padding">
-        <form action="<?php echo base_url(). 'baprps/input_jadwal_post'; ?>" method="post" class="box box-primary">
+        <form action="<?php echo base_url(). 'baprps/aksi_grafik'; ?>" method="post" class="box box-primary">
         	<div class="box-header with-border">
         		Input Jadwal Dosen
         	</div>

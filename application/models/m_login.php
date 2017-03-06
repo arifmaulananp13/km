@@ -11,7 +11,20 @@ class M_login extends CI_Model{
 		}else{
 			return false;
 		}
-	}	
-	
+	}		
+
+	function sesuai($dosen,$matkul){
+		$this->db->select('*');
+		$this->db->where('dosen',$dosen);
+		$this->db->where('matkul',$matkul);
+		$this->db->from('verif_bap');
+		$query	= $this->db->get();
+		if($query->num_rows() ==1){
+			return $query->result();
+		}else{
+			return false;
+		}
+	}
 }
+
 ?>

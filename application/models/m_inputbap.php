@@ -50,8 +50,6 @@ class M_inputbap extends CI_Model{
 	$this->db->set('tanggal', 'NOW()', FALSE);	
 	$this->db->insert($table,$where);
 	}
-
-	
-	
+		
 }
  
