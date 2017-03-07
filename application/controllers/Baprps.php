@@ -37,7 +37,7 @@ class Baprps extends CI_Controller {
 		}
 	
 		public function input_bap2($id){
-		$where = array('dosen' => $id);
+		$where = array('id_jadwal' => $id);
 		$data['data'] = $this->m_inputbap->verif_data($where,'input_jadwal')->result();
 		$data['dosen'] = $this->combobox_model->getDosen();
 		$data['matkul'] = $this->combobox_model->getMatkulAll();
@@ -207,6 +207,7 @@ class Baprps extends CI_Controller {
 		$data['active_5'] = "active";
 		$data['dosen'] = $this->combobox_model->getDosen();
 		$data['matkul'] = $this->combobox_model->getMatkulAll();
+		$data['kelas'] = $this->combobox_model->getKelasAll();
 		view('rpsbap/grafik',$data);
 		}		
 		elseif($this->session->userdata('level') == 'Mahasiswa'){
@@ -223,6 +224,7 @@ class Baprps extends CI_Controller {
 		$data['active_5'] = "active";
 		$data['dosen'] = $this->combobox_model->getDosen();
 		$data['matkul'] = $this->combobox_model->getMatkulAll();
+		$data['kelas'] = $this->combobox_model->getKelasAll();
 		view('rpsbap/grafik',$data);
 		}
 		}
@@ -231,7 +233,12 @@ class Baprps extends CI_Controller {
 	$data['title'] = "Table";
 	$dosen	= $this->input->post('dosen');
 	$matkul	= $this->input->post('matkul');
-	$data['data'] = $this->m_login->sesuai($dosen, $matkul);
+	$kelas	= $this->input->post('kelas');	
+	$data['data'] = $this->m_login->sesuai($dosen, $matkul, $kelas);
+	$dosen1		= $this->input->post('dosen1');
+	$matkul1	= $this->input->post('matkul1');
+	$kelas1		= $this->input->post('kelas1');
+	$data['data1'] = $this->m_login->sesuai1($dosen1, $matkul1, $kelas1);
 	view('rpsbap/tabel',$data);
 	}
 

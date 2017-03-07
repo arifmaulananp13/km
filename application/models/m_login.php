@@ -13,11 +13,32 @@ class M_login extends CI_Model{
 		}
 	}		
 
-function sesuai($dosen, $matkul){
+function sesuai($dosen, $matkul, $kelas){
    $this -> db -> select('*');
    $this -> db -> from('verif_bap');
    $this -> db -> where('dosen', $dosen);
    $this -> db -> where('matkul', $matkul);
+   $this -> db -> where('kelas', $kelas); 
+   $this -> db -> limit(100);
+ 
+   $query = $this -> db -> get();
+ 
+   if($query -> num_rows() > 0)
+   {
+     return $query->result();
+   }
+   else
+   {
+     return false;
+   }
+ }
+ 
+function sesuai1($dosen1, $matkul1, $kelas1){
+   $this -> db -> select('*');
+   $this -> db -> from('verif_bap');
+   $this -> db -> where('dosen', $dosen1);
+   $this -> db -> where('matkul', $matkul1);
+   $this -> db -> where('kelas', $kelas1); 
    $this -> db -> limit(100);
  
    $query = $this -> db -> get();

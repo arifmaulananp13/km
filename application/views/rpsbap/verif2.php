@@ -53,7 +53,7 @@
 					$no = 1;
 					foreach($data as $u){
 				?>
-	        		<textarea name="materi" class="form-control" type="text" rows="5" placeholder="<?php echo $u->materi ?>" value="<?php echo $u->materi ?>"  readonly></textarea>
+	        		<input name="materi" class="form-control" type="text" value="<?php echo $u->materi ?>" readonly>
 				<?php } ?>
         	</div>
 			 <div class="col-md-6 form-group">

@@ -27,10 +27,44 @@
 					<option value="<?php echo $m['nama_matkul']; ?>"><?php echo $m['nama_matkul']; ?></option>
 					<?php } ?> 					
 		            </select>
-	        	</div>				
+	        	</div>
+	        	<div class="col-md-12 form-group">
+		        	<select name="kelas" id="kelas" class="form-control" required="">
+		            <option disabled="" selected="">Kelas</option> 	
+					<?php foreach($kelas as $k) {?>
+					<option value="<?php echo $k['nama_kelas']; ?>"><?php echo $k['nama_kelas']; ?></option>
+					<?php } ?> 					
+		            </select>
+	        	</div>
+				
+			<div class="col-md-12 form-group">
+              <select name="dosen1" id="dosen1" class="form-control" required="">
+                  <option disabled="" selected="">Dosen</option>
+				  <?php foreach($dosen as $d){ ?>
+				  <option value="<?php echo $d['nama_dosen']; ?>"><?php echo $d['nama_dosen']; ?></option>
+				  <?php } ?>
+                </select>
+            </div>
+	        	<div class="col-md-12 form-group">
+		        	<select name="matkul1" id="matkul1" class="form-control" required="">
+		            <option disabled="" selected="">Mata Kuliah</option>
+					<?php foreach($matkul as $m) {?>
+					<option value="<?php echo $m['nama_matkul']; ?>"><?php echo $m['nama_matkul']; ?></option>
+					<?php } ?> 					
+		            </select>
+	        	</div>
+	        	<div class="col-md-12 form-group">
+		        	<select name="kelas1" id="kelas1" class="form-control" required="">
+		            <option disabled="" selected="">Kelas</option> 	
+					<?php foreach($kelas as $k) {?>
+					<option value="<?php echo $k['nama_kelas']; ?>"><?php echo $k['nama_kelas']; ?></option>
+					<?php } ?> 					
+		            </select>
+	        	</div>
+				
 				
         		<div class="col-md-12 form-group">
-        			<button name="mysubmit" class="btn btn-primary pull-right btn-flat" type="submit">Submit</button>
+        			<button name="mysubmit" class="btn btn-primary pull-left btn-flat" type="submit">Show Record</button>
         		</div>
         	</div>
 			</div>
