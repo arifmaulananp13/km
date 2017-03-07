@@ -23,15 +23,17 @@
 			</tr>
 			<?php
 			$no = 1;
+			foreach($data as $u){
 			?>
 			<tr>
 				<td><?php echo $no++?></td>
-				<td><?php echo $this->session->userdata('dosen')?></td>
-				<td><?php echo $this->session->userdata('matkul')?></td>
-				<td><?php echo $this->session->userdata('kelas')?></td>
-				<td><?php echo $this->session->userdata('status')?></td>
-				<td><?php echo $this->session->userdata('ket')?></td>
+				<td><?php echo $u->dosen ?></td>
+				<td><?php echo $u->matkul ?></td>
+				<td><?php echo $u->kelas ?></td>
+				<td><?php echo $u->status ?></td>
+				<td><?php echo $u->ket ?></td>
 			</tr>
+			<?php } ?>
 			</table>
             </div>
 
@@ -39,4 +41,4 @@
         </form>
         </div>
         </section>
-     
+ 

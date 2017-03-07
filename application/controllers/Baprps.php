@@ -228,43 +228,13 @@ class Baprps extends CI_Controller {
 		}
 
 	public function aksi_grafik(){
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('dosen','dosen','trim|required|callback_check_tabel');
-        $this->form_validation->set_rules('matkul','matkul','trim|required|md5');
-		
-		if($this->form_validation->run() == False){
-			$this->grafik();
-		}else{
-			redirect ('baprps/tabel');
-			}
-		}		
-	
-	public function check_tabel(){
-		$dosen = $this->input->post('dosen');
-		$matkul = $this->input->post('matkul');
-		$this->load->model('m_login');
-		$result = $this->m_login->sesuai($dosen,$matkul);
-		if($result){
-			foreach ($result as $user){
-				$s = array();
-				$s['id']					= $user->id_verif;
-				$s['dosen']					= $user->dosen;
-				$s['matkul']				= $user->matkul;
-				$s['kelas']					= $user->kelas;
-				$s['status']				= $user->status;
-				$s['ket']					= $user->ket;
-				$this->session->set_userdata($s);
-			}
-		}else{
-			$this->form_validation->set_message('check_user_login','incorrect Dosen and Matakuliah');
-			return false;
-		}
+	$data['title'] = "Table";
+	$dosen	= $this->input->post('dosen');
+	$matkul	= $this->input->post('matkul');
+	$data['data'] = $this->m_login->sesuai($dosen, $matkul);
+	view('rpsbap/tabel',$data);
 	}
-	
-	public function tabel(){
-		$data['title'] = "table";		
-		view('rpsbap/tabel',$data);
-	}
+
 
 		
 
