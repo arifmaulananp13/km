@@ -36,7 +36,7 @@
 					<?php } ?> 					
 		            </select>
 	        	</div>
-				
+			<label for="dosen1" class="form-label">Compare dengan :</label>	
 			<div class="col-md-12 form-group">
               <select name="dosen1" id="dosen1" class="form-control" required="">
                   <option disabled="" selected="">Dosen</option>
