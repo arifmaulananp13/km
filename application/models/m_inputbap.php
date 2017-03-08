@@ -50,6 +50,21 @@ class M_inputbap extends CI_Model{
 	$this->db->set('tanggal', 'NOW()', FALSE);	
 	$this->db->insert($table,$where);
 	}
+	
+	function edit_data($where,$table){		
+		return $this->db->get_where($table,$where);
+	}
+ 
+	function update_data($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}
+
+	public function user(){
+	$this->db->select('*');
+	$query= $this->db->get('user');
+	return $query->result();
+    }	
 		
 }
  

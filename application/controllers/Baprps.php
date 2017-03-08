@@ -401,5 +401,30 @@ class Baprps extends CI_Controller {
 		$this->m_inputbap->input_comment($where,'table_comment');
 			redirect($_SERVER['HTTP_REFERER']);
 	}
+	
+	public function edit(){
+		$data['title'] = "User Management";
+		$data['active_12'] = "active";
+		$data['data']=$this->m_inputbap->user();
+		view('kkpage',$data);
+	}
+	
+	public function edit2($id){
+		$where = array('id_user' => $id);
+		$data['data'] = $this->m_inputbap->verif_data($where,'user')->result();		
+		$data['level'] = $this->combobox_model->getlvl();
+		$data['title'] = "User Management";
+		view('kkpage2',$data);
+	}
+	
+	public function update($id){
+		$id	= $this->input->post('id_user');
+		$level	= $this->input->post('level');
+		$where = array('id_user' => $id);
+		$data = array('level' => $level);
+
+	$this->m_inputbap->update_data($where, $data,'user');
+	redirect('baprps/edit');
+}
 		
 }
