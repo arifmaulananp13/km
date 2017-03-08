@@ -8,7 +8,7 @@
 		  <div class="col-md-12 with-padding">
         <form action="<?php echo base_url(). 'baprps/aksi_grafik'; ?>" method="post" class="box box-primary">
         	<div class="box-header with-border">
-        		Input Jadwal Dosen
+        		Pilih Objek Perbandingan
         	</div>
         	<div class="box-body">
 			<div class="col-md-6 form-group">
