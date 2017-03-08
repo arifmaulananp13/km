@@ -31,6 +31,9 @@ class Baprps extends CI_Controller {
 		elseif($this->session->userdata('level') == 'Mahasiswa'){
 		redirect('baprps/verif_bap');
 		}
+		elseif($this->session->userdata('level') == 'Belum Aktif'){
+		redirect('baprps/forum');
+		}		
 		else{
 		redirect('baprps/grafik');	
 		}
@@ -86,6 +89,9 @@ class Baprps extends CI_Controller {
 		elseif($this->session->userdata('level') == 'Dosen Pengajar'){
 		redirect('baprps/input_bap');
 		}
+		elseif($this->session->userdata('level') == 'Belum Aktif'){
+		redirect('baprps/forum');
+		}
 		else{
 		redirect('baprps/grafik');	
 		}
@@ -112,6 +118,9 @@ class Baprps extends CI_Controller {
 		}
 		elseif($this->session->userdata('level') == 'Dosen Pengajar'){
 		redirect('baprps/input_bap');
+		}
+		elseif($this->session->userdata('level') == 'Belum Aktif'){
+		redirect('baprps/forum');
 		}
 		else{
 		redirect('baprps/grafik');	
@@ -177,6 +186,9 @@ class Baprps extends CI_Controller {
 		elseif($this->session->userdata('level') == 'Dosen Pengajar'){
 		redirect('baprps/input_bap');
 		}
+		elseif($this->session->userdata('level') == 'Belum Aktif'){
+		redirect('baprps/forum');
+		}
 		else{
 		redirect('baprps/grafik');	
 		}		
@@ -217,6 +229,9 @@ class Baprps extends CI_Controller {
 		redirect('baprps/input_bap');
 		}
 		elseif($this->session->userdata('level') == 'Sekretaris Kaprodi'){
+		redirect('baprps/forum');
+		}
+		elseif($this->session->userdata('level') == 'Belum Aktif'){
 		redirect('baprps/forum');
 		}
 		else{
@@ -271,6 +286,9 @@ class Baprps extends CI_Controller {
 		}
 		elseif($this->session->userdata('level') == 'Dosen Pengajar'){
 		redirect('baprps/input_bap');
+		}
+		elseif($this->session->userdata('level') == 'Belum Aktif'){
+		redirect('baprps/forum');
 		}
 		else{
 		redirect('baprps/grafik');	
@@ -327,12 +345,15 @@ class Baprps extends CI_Controller {
 	}
 
 	public function forum(){
+		if ($this->session->userdata('level') == 'Mahasiswa'){
+		redirect('baprps/verif_bap');
+		}else{		
 		$data['title'] = "Forum";
 		$data['active_7'] = "active";
 		$data['data']=$this->m_inputbap->post();		
 		view('forum/forum',$data);
 	}
-
+	}
 	public function newpost(){
 		$data['title'] = "Forum";
 		view('forum/newpost',$data);		

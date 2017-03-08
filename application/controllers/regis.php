@@ -13,8 +13,7 @@ class Regis extends CI_Controller {
 	}
 
 	public function registrasi(){
-		$data['level'] = $this->combobox_model->getlvl();
-		$this->load->view('register',$data);
+		$this->load->view('register');
 	}
 
 	public function registrasi_post(){
@@ -44,12 +43,14 @@ class Regis extends CI_Controller {
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$profile_picture = $this->input->post('picture');
+		$level = $this->input->post('level');
 		
 		$data = array(
 			'nama_user' => $nama_user,
 			'username' => $username,
-			'password' => md5('password'),
+			'password' => md5($password),
 			'profile_picture' => $picture,
+			'level' => 'Belum Aktif',
 			);
 		$this->m_inputbap->input_data($data,'user');
 		redirect('login/index');		
