@@ -9,13 +9,7 @@
         <form class="box box-primary">
 
 			<div class="box-header with-border">
-
-        		Matakuliah : 
-			<?php
-			foreach (array_slice($data,0,1) as $u){
-			?>
-				<?php echo $u->matkul ?>        	
-        	<?php } ?>
+			Compare			
 			</div>
 
 			<div class="box-body">
@@ -26,8 +20,8 @@
 			$no = 1;
 			foreach(array_slice($data,0,1) as $u){
 			?>
-				<td class="col-md-2">Dosen : <?php echo $u->dosen ?></td>
-				<td class="col-md-2"></td>
+				<td class="col-md-2"><?php echo $u->dosen ?></td>
+				<td class="col-md-2"><?php echo $u->matkul ?></td>
 				<td class="col-md-2"></td>
 			<?php } ?>
 			</tr>
@@ -56,8 +50,8 @@
 			$no = 1;
 			foreach(array_slice($data1,0,1) as $i){
 			?>
-				<td class="col-md-2">Dosen : <?php echo $i->dosen ?></td>
-				<td class="col-md-2"></td>
+				<td class="col-md-2"><?php echo $i->dosen ?></td>
+				<td class="col-md-2"><?php echo $i->matkul ?></td>
 				<td class="col-md-2"></td>
 			<?php } ?>
 			</tr>
