@@ -14,13 +14,16 @@
             <div class="col-md-12 form-group">
         	<table class="table table-bordered">
 			<tr>
-				<th>No</th>
-				<th>Nama</th>
-				<th>NIM</th>
-				<th>UTS</th>
-				<th>UAS</th>
-				<th>QUIZ</th>
-				<th>FILE</th>
+        <th>No</th>
+        <th>NAMA</th>
+        <th>NIM</th>
+        <th>UTS</th>
+        <th>UAS</th>
+        <th>TUGAS</th>
+        <th>TOTAL</th>
+        <th>GRADE</th>
+        <th>DOSEN</th>
+
 			</tr>
 			<?php
 			$no = 1;
@@ -32,8 +35,12 @@
 				<td><?php echo $u->nim ?></td>
 				<td><?php echo $u->uts ?></td>
 				<td><?php echo $u->uas ?></td>
-				<td><?php echo $u->quiz ?></td>
-				<td><code><a href="<?=base_url ()?>nilai/download/<?php echo $u->file ?>" >Download</a></code></td>
+				<td><?php echo $u->tugas ?></td>
+        <td><?php echo $u->total ?></td>
+        <td><?php echo $u->grade ?></td>
+        <td><?php echo $u->dosen ?></td>
+
+			
 			</tr>
 			<?php } ?>
 			</table>
