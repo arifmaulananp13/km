@@ -79,7 +79,7 @@
 			</li>
 			<li class="treeview">
 			  <a href="#">
-				<i class="fa fa-folder"></i> <span>Detail Nilai</span>
+				<i class="fa fa-folder"></i> <span>Detail Nilai123</span>
 				<span class="pull-right-container">
 				  <i class="fa fa-angle-left pull-right"></i>
 				</span>
@@ -104,4 +104,5 @@
 
 	
 	  </html>
+	  
 	  
