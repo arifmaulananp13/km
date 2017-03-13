@@ -55,7 +55,15 @@
 					?>
 				  <input class="form-control" type="text" value="<?php echo $u->shift ?>" id="shift" name="shift" readonly>
 				  <?php } ?>
-            </div>
+            </div>		
+	          <div class="form-group">
+                <label>
+                  <input type="checkbox" class="minimal" checked>
+                </label>
+                <label>
+                  <input type="checkbox" class="minimal">
+                </label>
+			  </div
         		<div class="col-md-12 form-group">
 	        		<textarea name="materi" class="form-control" rows="10" placeholder="Materi Perkuliahan" ></textarea>
         		</div>

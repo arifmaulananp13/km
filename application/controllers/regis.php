@@ -22,7 +22,7 @@ class Regis extends CI_Controller {
             //Check whether user upload picture
             if(!empty($_FILES['picture']['name'])){
                 $config['upload_path'] = 'upload/image';
-                $config['allowed_types'] = 'png|jpeg|jpg|xdoc';
+                $config['allowed_types'] = 'png|jpeg|jpg';
                 $config['file_name'] = $_FILES['picture']['name'];
                 
                 //Load upload library and initialize configuration

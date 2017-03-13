@@ -71,7 +71,7 @@
 			<ul class="treeview-menu">
             <li class="{active_1}"><a href="{l_inputbap}"><i class="fa fa-circle-o"></i><span>Input BAP</span></a></li>
             <li class="{active_2}"><a href="{l_verifbap}"><i class="fa fa-circle-o"></i><span>Verifikasi BAP</span></a></li>
-            <li class="{active_3}"><a href="{l_inputrps}"><i class="fa fa-circle-o"></i><span>Input RPS</span></a></li>
+            <li class="{active_3}"><a href="<?php echo base_url('excel2/input_rps'); ?>"><i class="fa fa-circle-o"></i><span>Input RPS</span></a></li>
 			<li class="{active_6}"><a href="<?php echo base_url('baprps/jadwal'); ?>"><i class="fa fa-circle-o"></i><span>Input Jadwal Dosen</span></a></li>
             <li class="{active_4}"><a href="{l_lihatrps}"><i class="fa fa-circle-o"></i><span>Lihat RPS</span></a></li>
             <li class="{active_5}"><a href="{l_grafik}"><i class="fa fa-circle-o"></i><span>Table</span></a></li>       
