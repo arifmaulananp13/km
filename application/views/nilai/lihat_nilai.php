@@ -15,11 +15,12 @@
         	<table class="table table-bordered">
 			<tr>
 				<th>No</th>
-				<th>Dosen</th>
-				<th>Mata Kuliah</th>
-				<th>Kelas</th>
-				<th>Tanggal</th>
-				<th>Nilai</th>
+				<th class="col-md-1">Dosen</th>
+				<th class="col-md-1">Mata Kuliah</th>
+				<th class="col-md-1">Kelas</th>
+				<th class="col-md-1">Tanggal</th>
+				<th class="col-md-1">File</th>
+        <th class="col-md-7">Deskripsi</th>
 			</tr>
 			<?php
 			$no = 1;
@@ -32,6 +33,7 @@
 				<td><?php echo $u->kelas ?></td>
 				<td><?php echo $u->no_tanggal ?></td>
 				<td><?php echo $u->nilai ?></td>
+        <td><?php echo $u->deskripsi ?></td>
 				<td><code><a href="<?=base_url ()?>nilai/download/<?php echo $u->nilai ?>" >Download</a></code></td>
 			</tr>
 			<?php } ?>
@@ -43,4 +45,3 @@
         </div>
         </section>
 	</div>
-

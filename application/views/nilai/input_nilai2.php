@@ -13,7 +13,7 @@
         		Input Nilai
         	</div>
         	<div class="box-body">
-             <div class="col-md-6 form-group">                 
+             <div class="col-md-6 form-group">
 				 	<label for="dosen" class="form-label">Dosen</label>
 					<?php
 					$no = 1;
@@ -37,9 +37,9 @@
                 <span class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </span>
-                  <input name="tanggal" class="form-control" type="date">         
+                  <input name="tanggal" class="form-control" type="date">
           </div>
-            </div> 
+            </div>
             <div class="col-md-6 form-group">
               <label for="kelas" class="form-label">Kelas</label>
 					<?php
@@ -48,12 +48,12 @@
 					?>
 				  <input class="form-control" type="text" value="<?php echo $u->kelas ?>" id="kelas" name="kelas" readonly>
 				  <?php } ?>
-            </div>   
+            </div>
 			<div class="col-md-12 form-group ">
               <input name="picture" class="form-control" type="file">
             </div>
             <div class="col-md-12 form-group">
-              <textarea name="materi" class="form-control" rows="10" placeholder="Materi Perkuliahan harian" ></textarea>
+              <textarea name="deskripsi" class="form-control" rows="10" placeholder="deskripsi" ></textarea>
             </div>
         		<div class="col-md-12 form-group">
         			<button class="btn btn-primary pull-right btn-flat" type="submit" name="fileSubmit" value="add">Submit</button>
@@ -63,4 +63,3 @@
         </div>
         </section>
 		</div>
-		

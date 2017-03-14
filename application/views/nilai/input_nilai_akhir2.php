@@ -10,9 +10,12 @@
           <div class="box-header with-border">
             Input Nilai Akhir
           </div>
-          <div class="box-body"> 
+          <div class="box-body">
           <div class="col-md-12 form-group ">
               <input name="file" class="form-control" type="file">
+            </div>
+            <div class="col-md-12 form-group">
+              <textarea name="materi" class="form-control" rows="10" placeholder="Deskripsi perkuliahan" ></textarea>
             </div>
             <div class="col-md-12 form-group">
               <button class="btn btn-primary pull-right btn-flat" type="submit" name="fileSubmit" value="add">Submit</button>
@@ -22,4 +25,3 @@
         </div>
         </section>
     </div>
-    

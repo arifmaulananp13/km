@@ -32,20 +32,20 @@ class nilai extends CI_Controller {
 		view('nilai/input_nilai2',$data);
 	}
 
-	
+
 	public function input_nilai_post(){
         if($this->input->post('fileSubmit')){
-            
+
             //Check whether user upload picture
             if(!empty($_FILES['picture']['name'])){
-                $config['upload_path'] = 'application/views/uploads/';
-                $config['allowed_types'] = 'xlsx|docx|pdf';
+                $config['upload_path'] = 'upload/nilai/';
+                $config['allowed_types'] = 'xlsx|docx|pdfx';
                 $config['file_name'] = $_FILES['picture']['name'];
-                
+
                 //Load upload library and initialize configuration
                 $this->load->library('upload',$config);
                 $this->upload->initialize($config);
-                
+
                 if($this->upload->do_upload('picture')){
                     $uploadData = $this->upload->data();
                     $picture = $uploadData['file_name'];
@@ -55,12 +55,13 @@ class nilai extends CI_Controller {
             }else{
                 $picture = '';
             }
-					
+
 		$dosen = $this->input->post('dosen');
 		$matkul = $this->input->post('matkul');
-		$nilai = $this->input->post('nilai');
+		$nilai = $this->input->post('picture');
 		$kelas = $this->input->post('kelas');
 		$tanggal = $this->input->post('tanggal');
+		$deskripsi = $this->input->post('deskripsi');
 
 
 		$data = array(
@@ -69,9 +70,10 @@ class nilai extends CI_Controller {
 		'nilai' => $picture,
 		'kelas' => $kelas,
 		'no_tanggal' => $tanggal,
+		'deskripsi' => $deskripsi,
 		);
 		$this->m_inputnilai->input_nilai($data,'input_nilai');
-		redirect('nilai/input_nilai');		
+		redirect('nilai/input_nilai');
 	}
 	}
 
@@ -80,22 +82,22 @@ class nilai extends CI_Controller {
 		$data['active_9'] = "active";
 		$data['data']=$this->m_inputnilai->tampil_nilai();
 		view('nilai/lihat_nilai',$data);
-	}  
-	
+	}
+
 
 	public function lihat_nilai_akhir(){
 		$data['title'] = "Lihat Nilai Akhir";
 		$data['active_10'] = "active";
 		$data['data']=$this->m_inputnilai->tampil_nilai_akhir();
 		view('nilai/lihat_nilai_akhir',$data);
-	}  
+	}
 
 		//IF download/upload,
 	public function download($fileName = NULL) {
 	$this->load->helper('download');
 	if ($fileName) {
-    $file = realpath ( "application/views/uploads/" ) . "\\" . $fileName;
-    // check file exists    
+    $file = realpath ( "upload/nilai/" ) . "\\" . $fileName;
+    // check file exists
     if (file_exists ( $file )) {
      // get file content
      $data = file_get_contents ( $file );
