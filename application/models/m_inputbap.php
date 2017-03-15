@@ -16,6 +16,10 @@ class M_inputbap extends CI_Model{
 	return $this->db->get_where($table,$where);
 	}
 	
+	function verif_data2($where2,$table){		
+	return $this->db->get_where($table,$where2);
+	}
+	
 	public function tampil_rps(){
 	$this->db->select('*');
 	$query= $this->db->get('input_rps');
@@ -64,7 +68,7 @@ class M_inputbap extends CI_Model{
 	$this->db->select('*');
 	$query= $this->db->get('user');
 	return $query->result();
-    }	
-		
+    }
 }
- 
+
+

@@ -15,7 +15,6 @@
         	<table class="table table-bordered">
 			<tr>
 				<th>No</th>
-				<th>Dosen</th>
 				<th>Mata Kuliah</th>
 				<th>Kelas</th>
 				<th>Hari</th>
@@ -27,15 +26,16 @@
 			?>
 			<tr>
 				<td><?php echo $no++?></td>
-				<td><?php echo $u->dosen ?></td>
 				<td><?php echo $u->matkul ?></td>
 				<td><?php echo $u->kelas ?></td>
 				<td><?php echo $u->hari ?></td>
 				<td><?php echo $u->shift ?></td>
-				<td><?php echo anchor('baprps/input_bap2/'.$u->id_jadwal,'Input BAP')?></td>
+				<td><a href="<?php echo base_url('baprps/input_bap2/'.$u->id_jadwal); ?>" type="submit" class="btn btn-default btn-flat">Input BAP</a></td>
+				
 			</tr>
 			<?php } ?>
 			</table>
+
             </div>
 
         	</div>
