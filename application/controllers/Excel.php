@@ -13,6 +13,8 @@ class Excel extends CI_Controller {
     public function input_nilai_akhir(){
         $data['title'] = "Input Nilai Akhir";
         $data['active_8'] = "active";
+        $data['kelas'] = $this->combobox_model->getKelasAll();
+    		$data['matkul'] = $this->combobox_model->getMatkulAll();
         view('nilai/input_nilai_akhir2',$data);
     }
 
@@ -56,7 +58,7 @@ class Excel extends CI_Controller {
                 //Sesuaikan sama nama kolom tabel di database
                  $data = array(
 
-                    
+
                     "NAMA"=> $rowData[0][0],
                     "NIM"=> $rowData[0][1],
                     "UTS"=> $rowData[0][2],
@@ -64,7 +66,10 @@ class Excel extends CI_Controller {
                     "TUGAS"=> $rowData[0][4],
                     "TOTAL"=> $rowData[0][5],
                     "GRADE"=> $rowData[0][6],
-                    "DOSEN"=> $rowData[0][7]
+                    "DOSEN"=> $rowData[0][7],
+                    "MATKUL"=> $rowData[0][8],
+                    "KELAS"=> $rowData[0][9]
+
 
 
                 );
@@ -75,7 +80,22 @@ class Excel extends CI_Controller {
                 //sesuaikan nama dengan nama tabel
                 $insert = $this->db->insert("eimport",$data);
                 //delete_files($media['file_path'],TRUE);
+
             }
+
+            $deskripsi = $this->input->post('deskripsi');
+            $dosen = $this->input->post('dosen');
+            $matkul = $this->input->post('matkul');
+            $kelas = $this->input->post('kelas');
+
+            $data = array(
+
+            	'deskripsi' => $deskripsi,
+              'dosen' => $dosen,
+              'matkul' => $matkul,
+              'kelas' => $kelas,
+        			);
+        		$this->m_inputnilai->input_nilai($data,'eimport');
 
 
         redirect('Excel/input_nilai_akhir');

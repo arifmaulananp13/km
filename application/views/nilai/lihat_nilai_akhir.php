@@ -10,8 +10,22 @@
         	<div class="box-header with-border">
         		Lihat Nilai Akhir
         	</div>
-        	<div class="box-body">
+
+          <div class="box-body">
+
             <div class="col-md-12 form-group">
+            <?php
+            $no = 1;
+            foreach(array_slice($data,0,1) as $u){
+            ?>
+              <p>Dosen : <?php echo $u->dosen ?></p>
+              <p>Matakuliah : <?php echo $u->matkul ?></p>
+              <p>Kelas : <?php echo $u->kelas ?></p>
+
+            <?php } ?>
+          </div>
+
+          <div class="col-md-12 form-group">
         	<table class="table table-bordered">
 			<tr>
         <th>No</th>
@@ -22,7 +36,8 @@
         <th>TUGAS</th>
         <th>TOTAL</th>
         <th>GRADE</th>
-        <th>DOSEN</th>
+
+
 
 			</tr>
 			<?php
@@ -38,14 +53,22 @@
 				<td><?php echo $u->tugas ?></td>
         <td><?php echo $u->total ?></td>
         <td><?php echo $u->grade ?></td>
-        <td><?php echo $u->dosen ?></td>
 
-			
+
+
 			</tr>
 			<?php } ?>
 			</table>
             </div>
 
+            <div class="col-md-12 form-group">
+            <?php
+            $no = 1;
+            foreach(array_slice($data,0,1) as $u){
+            ?>
+              <p>deskripsi : <?php echo $u->deskripsi ?></p>
+            <?php } ?>
+          </div>
         	</div>
         </form>
         </div>

@@ -9,7 +9,7 @@
         <form class="box box-primary">
 
 			<div class="box-header with-border">
-			Compare			
+			Compare
 			</div>
 
 			<div class="box-body">
@@ -42,7 +42,7 @@
 			</tr>
 			</table>
             </div>
-			
+
 			<div class="col-md-6 form-group">
         	<table class ="table table-bordered" >
 			<tr>
@@ -77,4 +77,3 @@
         </form>
         </div>
         </section>
- 

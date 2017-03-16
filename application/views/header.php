@@ -33,7 +33,7 @@
 					<p>
 					<?php echo $this->session->userdata('nama_user')?>-<?php echo $this->session->userdata('level')?>
                     </p>
-					
+
                   </li>
                   <li class="user-footer">
                     <div class="pull-right">
@@ -47,7 +47,7 @@
         </nav>
       </header>
 
-      
+
       <aside class="main-sidebar">
         <section class="sidebar">
           <div class="user-panel">
@@ -74,7 +74,7 @@
             <li class="{active_3}"><a href="<?php echo base_url('excel2/input_rps'); ?>"><i class="fa fa-circle-o"></i><span>Input RPS</span></a></li>
 			<li class="{active_6}"><a href="<?php echo base_url('baprps/jadwal'); ?>"><i class="fa fa-circle-o"></i><span>Input Jadwal Dosen</span></a></li>
             <li class="{active_4}"><a href="{l_lihatrps}"><i class="fa fa-circle-o"></i><span>Lihat RPS</span></a></li>
-            <li class="{active_5}"><a href="{l_grafik}"><i class="fa fa-circle-o"></i><span>Table</span></a></li>       
+            <li class="{active_5}"><a href="{l_grafik}"><i class="fa fa-circle-o"></i><span>Table</span></a></li>
 			</ul>
 			</li>
 			<li class="treeview">
@@ -88,7 +88,7 @@
             <li class="{active_11}"><a href="<?php echo base_url(). 'nilai/input_nilai'; ?>"><i class="fa fa-circle-o"></i><span>Input Nilai Harian</span></a></li>
             <li class="{active_8}"><a href="<?php echo base_url(). 'excel/input_nilai_akhir'; ?>"><i class="fa fa-circle-o"></i><span>Input Nilai Akhir</span></a></li>
             <li class="{active_9}"><a href="<?php echo base_url(). 'nilai/lihat_nilai'; ?>"><i class="fa fa-circle-o"></i><span>Lihat Nilai Harian</span></a></li>
-            <li class="{active_10}"><a href="<?php echo base_url(). 'nilai/lihat_nilai_akhir'; ?>"><i class="fa fa-circle-o"></i><span>Lihat Nilai Akhir</span></a></li>
+            <li class="{active_10}"><a href="<?php echo base_url(). 'nilai/pre_nilai_akhir'; ?>"><i class="fa fa-circle-o"></i><span>Lihat Nilai Akhir</span></a></li>
 		  	</ul>
 			</li>
 			<li class="{active_7}"><a href="<?php echo base_url('baprps/forum'); ?>"><i class="fa fa-comments"></i><span>Forum</span></a></li>
@@ -102,6 +102,5 @@
       <script src="{js_app}"></script>
       <script src="{js_slimscroll}"></script>
 
-	
+
 	  </html>
-	  
