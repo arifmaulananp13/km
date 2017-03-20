@@ -41,11 +41,11 @@ class Baprps extends CI_Controller {
 		}
 		}
 	
-		public function input_bap2($id){
+		public function input_bap2($id,$matkul){
 		$data['title'] = "Input BAP";
 		$where = array('id_jadwal' => $id);
 		$data['data'] = $this->m_inputbap->verif_data($where,'input_jadwal')->result();
-		$data['rps']=$this->m_inputbap->tampil_rps();
+		$data['matkul'] = $this->m_inputbap->getrps($matkul)->result();
 		view('rpsbap/input_bap2',$data);	
 	}
 

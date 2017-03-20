@@ -16,8 +16,11 @@ class M_inputbap extends CI_Model{
 	return $this->db->get_where($table,$where);
 	}
 	
-	function verif_data2($where2,$table){		
-	return $this->db->get_where($table,$where2);
+	function getrps($matkul){		
+	$this->db->select('*');
+	$this->db->where('matkul',$matkul);	
+	$query= $this->db->get('input_rps');
+	return $query;
 	}
 	
 	public function tampil_rps(){

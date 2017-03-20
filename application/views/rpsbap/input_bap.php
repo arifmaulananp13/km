@@ -30,7 +30,7 @@
 				<td><?php echo $u->kelas ?></td>
 				<td><?php echo $u->hari ?></td>
 				<td><?php echo $u->shift ?></td>
-				<td><a href="<?php echo base_url('baprps/input_bap2/'.$u->id_jadwal); ?>" type="submit" class="btn btn-default btn-flat">Input BAP</a></td>
+				<td><a href="<?php echo base_url('baprps/input_bap2/'.$u->id_jadwal.'/'.$u->matkul); ?>" type="submit" class="btn btn-default btn-flat">Input BAP</a></td>
 				
 			</tr>
 			<?php } ?>
