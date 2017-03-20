@@ -11,49 +11,66 @@
         		Verifikasi BAP
         	</div>
         	<div class="box-body">
-             <div class="col-md-6 form-group">                 
-				 	<label for="dosen" class="form-label">Dosen :</label>
+			<div class="col-md-6 form-group"> 
 					<?php
 					$no = 1;
 					foreach($data as $u){
 					?>
-				  <input class="form-control" type="text" value="<?php echo $u->dosen ?>" id="dosen" name="dosen" readonly>
+					<p>Dosen : <?php echo $u->dosen ?> </p>
+					<p>Mata Kuliah : <?php echo $u->matkul ?> </p>
+					<p>Kelas : <?php echo $u->kelas ?> </p>
+					<p>Shift : <?php echo $u->shift ?> </p>
+					<p>Ruangan : <?php echo $u->ruangan ?> </p>
+					<?php } ?>
+					<p>Tanggal :					
+	        		<div class="input-group">
+		        		<span class="input-group-addon">
+		        			<i class="fa fa-calendar"></i>
+		        		</span>
+		            	<input name="tanggal" class="form-control" type="date">					
+					</div>
+	        	</div>			
+             <div class="col-md-6 form-group">                 
+					<?php
+					$no = 1;
+					foreach($data as $u){
+					?>
+				  <input class="form-control" type="hidden" value="<?php echo $u->dosen ?>" id="dosen" name="dosen" readonly>
+				  <input class="form-control" type="hidden" value="<?php echo $u->shift ?>" id="shift" name="shift" readonly>
+				  <input class="form-control" type="hidden" value="<?php echo $u->ruangan ?>" id="ruangan" name="ruangan" readonly>
 				  <?php } ?>
             </div>
              <div class="col-md-6 form-group">   
-				 	<label for="matkul" class="form-label">Mata Kuliah :</label>
 				 	<?php
 					$no = 1;
 					foreach($data as $u){
 					?>
-				  <input class="form-control" type="text" value="<?php echo $u->matkul ?>" id="matkul" name="matkul" readonly>
+				  <input class="form-control" type="hidden" value="<?php echo $u->matkul ?>" id="matkul" name="matkul" readonly>
 				  <?php } ?>
             </div>
-              <div class="col-md-6 form-group">  
-				 	<label  for="kelas" class="form-label">Kelas :</label>			  
+              <div class="col-md-6 form-group">  		  
 				 	<?php
 					$no = 1;
 					foreach($data as $u){
 					?>
-				  <input class="form-control" type="text" value="<?php echo $u->kelas ?>" id="kelas" name="kelas" readonly>
+				  <input class="form-control" type="hidden" value="<?php echo $u->kelas ?>" id="kelas" name="kelas" readonly>
 				  <?php } ?>
             </div>
-             <div class="col-md-6 form-group"> 
-				 	<label for="tanggal" class="form-label">Tanggal :</label>			 
+             <div class="col-md-6 form-group"> 		 
 				 	<?php
 					$no = 1;
 					foreach($data as $u){
 					?>
-				  <input class="form-control" type="text" value="<?php echo $u->no_tanggal ?>" id="tanggal" name="tanggal" readonly>
+				  <input class="form-control" type="hidden" value="<?php echo $u->no_tanggal ?>" id="tanggal" name="tanggal" readonly>
 				  <?php } ?>
             </div>
 			<div class="col-md-12 form-group">
-				 	<label for="materi" class="form-label">Materi Perkuliahan :</label>			
+		
 				<?php
 					$no = 1;
 					foreach($data as $u){
 				?>
-	        		<input name="materi" class="form-control" type="text" value="<?php echo $u->materi ?>" readonly>
+					<textarea name="materi" id="materi" type="text" class="form-control" rows="5" placeholder="<?php echo $u->materi ?>"readonly></textarea>
 				<?php } ?>
         	</div>
 			 <div class="col-md-6 form-group">
@@ -70,5 +87,8 @@
         </form>
         </div>
         </section>
+		</div>
+		<div class="content-wrapper">
+		</div>
 
 

@@ -52,6 +52,14 @@
 					<?php } ?> 					
 		            </select>
 	        	</div>
+				<div class="col-md-12 form-group">
+		        	<select name="ruangan" id="ruangan" class="form-control" required="">
+		            <option disabled="" selected="">Ruangan</option> 	
+					<?php foreach($ruangan as $r) {?>
+					<option value="<?php echo $r['ruangan']; ?>"><?php echo $r['ruangan']; ?></option>
+					<?php } ?> 					
+		            </select>
+	        	</div>
 				
 				
         		<div class="col-md-12 form-group">

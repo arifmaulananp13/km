@@ -11,7 +11,7 @@
         		Verifikasi BAP
         	</div>
         	<div class="box-body">
-            <div class="col-md-6" form-group>
+            <div class="col-md-12 form-group">
         	<table class="table table-bordered">
 			<tr>
 				<th>No</th>
@@ -19,6 +19,8 @@
 				<th>Mata Kuliah</th>
 				<th>Kelas</th>
 				<th>Tanggal</th>
+				<th>Shift</th>
+				<th>Ruangan</th>
 			</tr>
 			<?php
 			$no = 1;
@@ -30,7 +32,9 @@
 				<td><?php echo $u->matkul ?></td>
 				<td><?php echo $u->kelas ?></td>
 				<td><?php echo $u->no_tanggal ?></td>
-				<td><?php echo anchor('baprps/verif2/'.$u->id_bap,'Verifikasi')?></td>
+				<td><?php echo $u->shift ?></td>
+				<td><?php echo $u->ruangan ?></td>
+				<td><a href="<?php echo base_url('baprps/verif2/'.$u->id_bap); ?>" type="submit" class="btn btn-default btn-flat">Verifikasi</a></td>
 			</tr>
 			<?php } ?>
 			</table>

@@ -19,6 +19,7 @@
 				<th>Kelas</th>
 				<th>Hari</th>
 				<th>Shift</th>
+				<th>Ruangan</th>
 			</tr>
 			<?php
 			$no = 1;
@@ -30,6 +31,7 @@
 				<td><?php echo $u->kelas ?></td>
 				<td><?php echo $u->hari ?></td>
 				<td><?php echo $u->shift ?></td>
+				<td><?php echo $u->ruangan ?></td>
 				<td><a href="<?php echo base_url('baprps/input_bap2/'.$u->id_jadwal.'/'.$u->matkul); ?>" type="submit" class="btn btn-default btn-flat">Input BAP</a></td>
 				
 			</tr>

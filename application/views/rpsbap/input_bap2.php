@@ -20,6 +20,7 @@
 					<p>Mata Kuliah : <?php echo $u->matkul ?> </p>
 					<p>Kelas : <?php echo $u->kelas ?> </p>
 					<p>Shift : <?php echo $u->shift ?> </p>
+					<p>Ruangan : <?php echo $u->ruangan ?> </p>
 					<?php } ?>
 					<p>Tanggal :					
 	        		<div class="input-group">
@@ -35,7 +36,7 @@
 					$no = 1;
 					foreach($data as $u){
 					?>
-				  <input type="hidden" class="form-control" type="text" value="<?php echo $u->dosen ?>" id="dosen" name="dosen" readonly>
+				  <input type="hidden" type="text" value="<?php echo $u->dosen ?>" id="dosen" name="dosen" readonly>
 				  <?php } ?>
             </div>
              <div class="col-md-6 form-group">   
@@ -60,6 +61,7 @@
 					foreach($data as $u){
 					?>
 				  <input type="hidden" class="form-control" type="text" value="<?php echo $u->shift ?>" id="shift" name="shift" readonly>
+				  <input type="hidden" class="form-control" type="text" value="<?php echo $u->ruangan ?>" id="ruangan" name="ruangan" readonly>
 				  <?php } ?>
             </div>
 			<div class="col-md-12 form-group">

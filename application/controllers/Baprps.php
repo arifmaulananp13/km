@@ -53,6 +53,8 @@ class Baprps extends CI_Controller {
 		$dosen = $this->input->post('dosen');
 		$matkul = $this->input->post('matkul');
 		$tanggal = $this->input->post('tanggal');
+		$shift = $this->input->post('shift');
+		$ruangan = $this->input->post('ruangan');
 		$kelas = $this->input->post('kelas');		
 		$materi = $this->input->post('materi');
 
@@ -60,6 +62,8 @@ class Baprps extends CI_Controller {
 			'dosen' => $dosen,
 			'matkul' => $matkul,
 			'no_tanggal' => $tanggal,
+			'shift' => $shift,
+			'ruangan' => $ruangan,
 			'kelas' => $kelas,
 			'materi' => $materi,
 			);
@@ -202,6 +206,7 @@ class Baprps extends CI_Controller {
 		$data['kelas'] = $this->combobox_model->getKelasAll();
 		$data['shift'] = $this->combobox_model->getShiftAll();		
 		$data['hari'] = $this->combobox_model->getHariAll();		
+		$data['ruangan'] = $this->combobox_model->getRuanganAll();
 		view('rpsbap/input_jadwal',$data);
 		}
 		elseif ($this->session->userdata('level') == 'Ketua Kelompok Keahlian'){
@@ -211,7 +216,8 @@ class Baprps extends CI_Controller {
 		$data['matkul'] = $this->combobox_model->getMatkulAll();
 		$data['kelas'] = $this->combobox_model->getKelasAll();
 		$data['shift'] = $this->combobox_model->getShiftAll();		
-		$data['hari'] = $this->combobox_model->getHariAll();		
+		$data['hari'] = $this->combobox_model->getHariAll();
+		$data['ruangan'] = $this->combobox_model->getRuanganAll();
 		view('rpsbap/input_jadwal',$data);
 		}
 		elseif($this->session->userdata('level') == 'Mahasiswa'){
@@ -234,6 +240,7 @@ class Baprps extends CI_Controller {
 		$kelas = $this->input->post('kelas');		
 		$hari = $this->input->post('hari');
 		$shift = $this->input->post('shift');
+		$ruangan = $this->input->post('ruangan');
 
 		$data = array(
 			'dosen' => $dosen,
@@ -241,6 +248,7 @@ class Baprps extends CI_Controller {
 			'kelas' => $kelas,
 			'hari' => $hari,
 			'shift' => $shift,
+			'ruangan' => $ruangan
 			);
 		$this->m_inputbap->input_data($data,'input_jadwal');
 		redirect('baprps/jadwal');
@@ -260,6 +268,8 @@ class Baprps extends CI_Controller {
 		$matkul = $this->input->post('matkul');
 		$tanggal = $this->input->post('tanggal');
 		$kelas = $this->input->post('kelas');		
+		$shift = $this->input->post('shift');
+		$ruangan = $this->input->post('ruangan');
 		$materi = $this->input->post('materi');
 		$status = $this->input->post('status');
 		$ket = $this->input->post ('ket');
@@ -268,7 +278,9 @@ class Baprps extends CI_Controller {
 			'dosen' => $dosen,
 			'matkul' => $matkul,
 			'no_tanggal' => $tanggal,
-			'kelas' => $kelas,
+			'kelas' => $kelas,	
+			'shift' => $shift,
+			'ruangan' => $ruangan,
 			'materi' => $materi,
 			'status' => $status,
 			'ket' => $ket,
