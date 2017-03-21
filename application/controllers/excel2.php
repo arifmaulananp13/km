@@ -90,7 +90,7 @@ class Excel2 extends CI_Controller {
                 //delete_files($media['file_path'],TRUE);
             }
 
-
+		$this->session->set_flashdata('category_success', 'Submit Success');
         redirect('excel2/input_rps');
     }
 }

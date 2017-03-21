@@ -68,6 +68,7 @@ class Baprps extends CI_Controller {
 			'materi' => $materi,
 			);
 		$this->m_inputbap->input_data($data,'input_bap');
+		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('baprps/input_bap');
     }
 
@@ -251,6 +252,7 @@ class Baprps extends CI_Controller {
 			'ruangan' => $ruangan
 			);
 		$this->m_inputbap->input_data($data,'input_jadwal');
+		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('baprps/jadwal');
     }
 	
@@ -286,6 +288,7 @@ class Baprps extends CI_Controller {
 			'ket' => $ket,
 			);
 		$this->m_inputbap->input_data($data,'verif_bap');
+		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('baprps/verif_bap');
 	}
 

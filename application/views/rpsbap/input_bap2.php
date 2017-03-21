@@ -9,7 +9,7 @@
         <form <form action="<?php echo base_url(). 'baprps/input_bap_post'; ?>" method="post" class="box box-primary">
         	<div class="box-header with-border">
         		Input BAP
-        	</div>
+			</div>
         	<div class="box-body">
 			<div class="col-md-6 form-group"> 
 					<?php
@@ -27,7 +27,7 @@
 		        		<span class="input-group-addon">
 		        			<i class="fa fa-calendar"></i>
 		        		</span>
-		            	<input name="tanggal" class="form-control" type="date">					
+		            	<input name="tanggal" class="form-control" type="date" required="">					
 					</div>
 	        	</div>
 			
