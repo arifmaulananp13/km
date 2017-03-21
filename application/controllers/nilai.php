@@ -6,6 +6,7 @@ class nilai extends CI_Controller {
 		parent::__construct();
 		$this->load->model('combobox_model');
 		$this->load->model('m_inputnilai');
+		$this->load->model('m_inputbap');
 		$this->load->helper('url');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
@@ -14,9 +15,12 @@ class nilai extends CI_Controller {
 	public function input_nilai(){
 		$data['title'] = "Input Nilai";
 		$data['active_11'] = "active";
-		$data['data'] = $this->m_inputnilai->tampil_jadwal();
+		$dosen = $this->session->userdata('nama_user');
+		$where = array('dosen' => $dosen);
+		$data['data'] = $this->m_inputbap->verif_data($where,'input_jadwal')->result();
 		view('nilai/input_nilai',$data);
 	}
+
 
 
 

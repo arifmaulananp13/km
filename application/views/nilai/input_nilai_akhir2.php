@@ -14,7 +14,7 @@
 
             <div class="col-md-6 form-group">
                   <div class="col-md-12 form-group">
-                    <input class="form-control" name="dosen" id="dosen" value="<?php echo $this->session->userdata('nama_user')?>" readonly>
+                    <input type="hidden" class="form-control" name="dosen" id="dosen" value="<?php echo $this->session->userdata('nama_user')?>" readonly>
                     <select name="matkul" id="matkul" class="form-control" required="">
                       <option disabled="" selected="">Mata Kuliah</option>
                 <?php foreach($matkul as $m) {?>
