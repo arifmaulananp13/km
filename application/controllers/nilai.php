@@ -77,6 +77,7 @@ class nilai extends CI_Controller {
 		'deskripsi' => $deskripsi,
 		);
 		$this->m_inputnilai->input_nilai($data,'input_nilai');
+		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('nilai/input_nilai');
 	}
 	}

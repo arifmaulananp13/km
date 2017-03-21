@@ -8,7 +8,6 @@
         <section class="content">
 		  <div class="col-md-12 with-padding">
         <form action="<?php echo base_url(). 'nilai/input_nilai_post'; ?>" method="post" enctype="multipart/form-data" class="box box-primary">
-
           <div class="box-header with-border">
         		Input Nilai
         	</div>
@@ -30,7 +29,7 @@
                     <span class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </span>
-                      <input name="tanggal" class="form-control" type="date">
+                      <input name="tanggal" class="form-control" type="date" required="">
                   </div>
                 </div>
 
