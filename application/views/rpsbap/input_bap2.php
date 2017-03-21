@@ -82,13 +82,14 @@
 			</tr>
 			<?php } ?>
 			</table>
+			</div>
 				<div class="col-md-12 form-group">
 	        		<textarea name="materitambahan" class="form-control" rows="4" placeholder="Materi Tambahan" ></textarea>
         		</div>
         		<div class="col-md-12 form-group">
         			<button class="btn btn-primary pull-right btn-flat" type="submit">Submit</button>
         		</div>
-        	</div>
+        	
         </form>
 		</form>
         </div>

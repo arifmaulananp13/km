@@ -50,12 +50,11 @@ class Login extends CI_Controller{
 				$s['username']				= $user->username;
 				$s['password']				= $user->password;
 				$s['level']					= $user->level;
-				$s['profile_picture']		= $user->profile_picture;
-				$s['jadwal']				= $user->jadwal;	
+				$s['profile_picture']		= $user->profile_picture;	
 				$this->session->set_userdata($s);
 			}
 		}else{
-			$this->form_validation->set_message('check_user_login','incorrect username and password');
+			$this->session->set_flashdata('category_error', 'Username atau Password Salah!');
 			return false;
 		}
 	}
