@@ -258,9 +258,14 @@ class Baprps extends CI_Controller {
 			'shift' => $shift,
 			'ruangan' => $ruangan
 			);
+		if(isset($_POST['dosen']) && isset($_POST['matkul']) && isset($_POST['kelas']) && isset($_POST['hari']) && isset($_POST['shift']) && isset($_POST['ruangan'])){	
 		$this->m_inputbap->input_data($data,'input_jadwal');
 		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('baprps/jadwal');
+		}else{
+		$this->session->set_flashdata('category_error', 'Data Tidak Boleh Kosong!');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
     }
 	
 	
