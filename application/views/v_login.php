@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/AdminLTE.min.css') ?>">
 	<?php if ($this->session->flashdata('category_error')) { ?>
-    <div class="callout callout-danger"> <?= $this->session->flashdata('category_error') ?> 
-	</div>
+					<div class="alert alert-danger alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<h4><i class="icon fa fa-ban"></i><?= $this->session->flashdata('category_error') ?></h4>
+					</div>
 	<?php } ?>
   </head>
   <body class="hold-transition login-page">

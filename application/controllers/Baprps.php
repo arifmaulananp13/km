@@ -57,7 +57,7 @@ class Baprps extends CI_Controller {
 		$ruangan = $this->input->post('ruangan');
 		$kelas = $this->input->post('kelas');		
 		$materi = $this->input->post('materi');
-
+		
 		$data = array(
 			'dosen' => $dosen,
 			'matkul' => $matkul,
@@ -65,11 +65,18 @@ class Baprps extends CI_Controller {
 			'shift' => $shift,
 			'ruangan' => $ruangan,
 			'kelas' => $kelas,
-			'materi' => $materi,
+			'materi' => $materi
 			);
+
+		if(isset($_POST['materi'])){
 		$this->m_inputbap->input_data($data,'input_bap');
 		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('baprps/input_bap');
+		}else{
+		$this->session->set_flashdata('category_error', 'Data Tidak Boleh Kosong!');
+			redirect($_SERVER['HTTP_REFERER']);
+
+		}
     }
 
 
