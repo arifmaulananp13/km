@@ -85,8 +85,12 @@ class Excel extends CI_Controller {
             }
 
 
-
+        if(isset($_POST['materi'])){
         $this->session->set_flashdata('category_success', 'Submit Success');
         redirect('Excel/input_nilai_akhir');
+        }else{
+        $this->session->set_flashdata('category_error', 'Data Tidak Boleh Kosong!');
+        redirect($_SERVER['HTTP_REFERER']);
     }
+}
 }

@@ -79,6 +79,11 @@ class nilai extends CI_Controller {
 		$this->m_inputnilai->input_nilai($data,'input_nilai');
 		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('nilai/input_nilai');
+		}else{
+		$this->session->set_flashdata('category_error', 'Data Tidak Boleh Kosong!');
+		redirect($_SERVER['HTTP_REFERER']);
+
+	
 	}
 	}
 

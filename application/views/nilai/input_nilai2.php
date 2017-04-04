@@ -64,11 +64,11 @@
                  </div>
 
       			<div class="col-md-12 form-group ">
-              <input name="picture" class="form-control" type="file">
+              <input name="picture" class="form-control" type="file" required="">
             </div>
 
             <div class="col-md-12 form-group">
-              <textarea name="deskripsi" class="form-control" rows="10" placeholder="deskripsi" ></textarea>
+              <textarea name="deskripsi" class="form-control" rows="10" placeholder="deskripsi" required="" ></textarea>
             </div>
 
         		<div class="col-md-12 form-group">
