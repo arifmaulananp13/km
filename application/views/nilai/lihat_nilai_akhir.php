@@ -66,7 +66,7 @@
             $no = 1;
             foreach(array_slice($data,0,1) as $u){
             ?>
-              <p>deskripsi : <?php echo $u->deskripsi ?></p>
+              <p>Deskripsi : <?php echo $u->deskripsi ?></p>
             <?php } ?>
           </div>
         	</div>

@@ -68,7 +68,8 @@ class Excel extends CI_Controller {
                     "GRADE"=> $rowData[0][6],
                     "DOSEN"=> $rowData[0][7],
                     "MATKUL"=> $rowData[0][8],
-                    "KELAS"=> $rowData[0][9]
+                    "KELAS"=> $rowData[0][9],
+                    "DESKRIPSI"=> $rowData[0][10]
 
 
 
@@ -83,21 +84,9 @@ class Excel extends CI_Controller {
 
             }
 
-            $deskripsi = $this->input->post('deskripsi');
-            $dosen = $this->input->post('dosen');
-            $matkul = $this->input->post('matkul');
-            $kelas = $this->input->post('kelas');
-
-            $data = array(
-
-            	'deskripsi' => $deskripsi,
-              'dosen' => $dosen,
-              'matkul' => $matkul,
-              'kelas' => $kelas,
-        			);
-        		$this->m_inputnilai->input_nilai($data,'eimport');
 
 
+        $this->session->set_flashdata('category_success', 'Submit Success');
         redirect('Excel/input_nilai_akhir');
     }
 }
