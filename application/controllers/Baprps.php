@@ -299,10 +299,16 @@ class Baprps extends CI_Controller {
 			'status' => $status,
 			'ket' => $ket,
 			);
+		if(isset($_POST['status'])){
 		$this->m_inputbap->input_data($data,'verif_bap');
 		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('baprps/verif_bap');
+		}else{
+		$this->session->set_flashdata('category_error', 'Data Tidak Boleh Kosong!');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
 	}
+	
 
 	public function forum(){
 		if ($this->session->userdata('level') == 'Mahasiswa'){

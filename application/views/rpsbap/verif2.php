@@ -9,6 +9,12 @@
         <form action="<?php echo base_url(). 'baprps/verif_bap_post'; ?>" method="post" class="box box-primary">
         	<div class="box-header with-border">
         		Verifikasi BAP
+	<?php if ($this->session->flashdata('category_error')) { ?>
+					<div class="alert alert-danger alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<h4><i class="icon fa fa-ban"></i><?= $this->session->flashdata('category_error') ?></h4>
+					</div>
+	<?php } ?>
         	</div>
         	<div class="box-body">
 			<div class="col-md-6 form-group"> 
@@ -27,7 +33,7 @@
 		        		<span class="input-group-addon">
 		        			<i class="fa fa-calendar"></i>
 		        		</span>
-		            	<input name="tanggal" class="form-control" type="date">					
+		            	<input name="tanggal" class="form-control" type="date" required="">					
 					</div>
 	        	</div>			
              <div class="col-md-6 form-group">                 
@@ -70,7 +76,7 @@
 					$no = 1;
 					foreach($data as $u){
 				?>
-					<textarea name="materi" id="materi" type="text" class="form-control" rows="5" placeholder="<?php echo $u->materi ?>"readonly></textarea>
+					<textarea name="materi" id="materi" type="text" class="form-control" rows="5" placeholder="<?php echo $u->materi ?>" readonly required=""></textarea>
 				<?php } ?>
         	</div>
 			 <div class="col-md-6 form-group">
