@@ -57,6 +57,7 @@ class Baprps extends CI_Controller {
 		$ruangan = $this->input->post('ruangan');
 		$kelas = $this->input->post('kelas');		
 		$materi = $this->input->post('materi');
+		$materitambahan = $this->input->post('materitambahan');
 		
 		$data = array(
 			'dosen' => $dosen,
@@ -65,7 +66,8 @@ class Baprps extends CI_Controller {
 			'shift' => $shift,
 			'ruangan' => $ruangan,
 			'kelas' => $kelas,
-			'materi' => $materi
+			'materi' => $materi,
+			'materitambahan' => $materitambahan
 			);
 
 		if(isset($_POST['materi'])){
@@ -258,13 +260,18 @@ class Baprps extends CI_Controller {
 			'shift' => $shift,
 			'ruangan' => $ruangan
 			);
+		if(isset($_POST['dosen']) && isset($_POST['matkul']) && isset($_POST['kelas']) && isset($_POST['hari']) && isset($_POST['shift']) && isset($_POST['ruangan'])){	
 		$this->m_inputbap->input_data($data,'input_jadwal');
 		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('baprps/jadwal');
+		}else{
+		$this->session->set_flashdata('category_error', 'Data Tidak Boleh Kosong!');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
     }
 	
 	
-	function verif2($id){
+	public function verif2($id){
 		$data['title'] = "Verifikasi BAP";
 		$data['active_7'] = "active";
 		$where = array('id_bap' => $id);
@@ -294,10 +301,16 @@ class Baprps extends CI_Controller {
 			'status' => $status,
 			'ket' => $ket,
 			);
+		if(isset($_POST['status'])){
 		$this->m_inputbap->input_data($data,'verif_bap');
 		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('baprps/verif_bap');
+		}else{
+		$this->session->set_flashdata('category_error', 'Data Tidak Boleh Kosong!');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
 	}
+	
 
 	public function forum(){
 		if ($this->session->userdata('level') == 'Mahasiswa'){
@@ -358,10 +371,24 @@ class Baprps extends CI_Controller {
 	}
 	
 	public function edit(){
+		if ($this->session->userdata('level') == 'Sekretaris Kaprodi'){
 		$data['title'] = "User Management";
 		$data['active_12'] = "active";
 		$data['data']=$this->m_inputbap->user();
 		view('kkpage',$data);
+		}
+		elseif($this->session->userdata('level') == 'Mahasiswa'){
+		redirect('baprps/verif_bap');
+		}
+		elseif($this->session->userdata('level') == 'Dosen Pengajar'){
+		redirect('baprps/input_bap');
+		}
+		elseif($this->session->userdata('level') == 'Belum Aktif'){
+		redirect('baprps/forum');
+		}
+		else{
+		redirect('baprps/grafik');	
+		}
 	}
 	
 	public function edit2($id){

@@ -16,6 +16,12 @@
 					<h4><i class="icon fa fa-check"></i><?= $this->session->flashdata('category_success') ?></h4>
 					</div>
 			<?php } ?>
+			<?php if ($this->session->flashdata('category_error')) { ?>
+							<div class="alert alert-danger alert-dismissible">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+							<h4><i class="icon fa fa-ban"></i><?= $this->session->flashdata('category_error') ?></h4>
+							</div>
+			<?php } ?>
 			</div>
         	<div class="box-body">
 			<div class="col-md-6 form-group">
