@@ -8,11 +8,11 @@ class Combobox_model extends CI_Model {
 			foreach ($query->result_array() as $row){
 		         	$data[] = $row;
 		        }
-		}	
+		}
 		$query->free_result();
-		return $data;	
+		return $data;
 	}
-	
+
 	function getMatkulAll() {
 		$data = array();
 		$query = $this->db->get('table_matkul');
@@ -20,11 +20,11 @@ class Combobox_model extends CI_Model {
 			foreach ($query->result_array() as $row){
 		         	$data[] = $row;
 		        }
-		}	
+		}
 		$query->free_result();
-		return $data;	
+		return $data;
 	}
-	
+
 	function getKelasAll() {
 		$data = array();
 		$query = $this->db->get('table_kelas');
@@ -32,11 +32,11 @@ class Combobox_model extends CI_Model {
 			foreach ($query->result_array() as $row){
 		         	$data[] = $row;
 		        }
-		}	
+		}
 		$query->free_result();
-		return $data;	
+		return $data;
 	}
-	
+
 	function getShiftAll() {
 		$data = array();
 		$query = $this->db->get('table_shift');
@@ -44,11 +44,11 @@ class Combobox_model extends CI_Model {
 			foreach ($query->result_array() as $row){
 		         	$data[] = $row;
 		        }
-		}	
+		}
 		$query->free_result();
-		return $data;	
+		return $data;
 	}
-	
+
 	function getHariAll() {
 		$data = array();
 		$query = $this->db->get('table_hari');
@@ -56,11 +56,11 @@ class Combobox_model extends CI_Model {
 			foreach ($query->result_array() as $row){
 		         	$data[] = $row;
 		        }
-		}	
+		}
 		$query->free_result();
-		return $data;	
+		return $data;
 	}
-	
+
 	function getlvl() {
 		$data = array();
 		$query = $this->db->get('tbl_level');
@@ -68,11 +68,11 @@ class Combobox_model extends CI_Model {
 			foreach ($query->result_array() as $row){
 		         	$data[] = $row;
 		        }
-		}	
+		}
 		$query->free_result();
-		return $data;	
+		return $data;
 	}
-	
+
 	function getRuanganAll() {
 		$data = array();
 		$query = $this->db->get('table_ruangan');
@@ -80,11 +80,11 @@ class Combobox_model extends CI_Model {
 			foreach ($query->result_array() as $row){
 		         	$data[] = $row;
 		        }
-		}	
+		}
 		$query->free_result();
-		return $data;	
+		return $data;
 	}
 
 
-	
+
 }

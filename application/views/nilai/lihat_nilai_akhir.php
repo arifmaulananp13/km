@@ -1,3 +1,12 @@
+
+<?php
+    foreach($data as $u){
+        $nama[] = $u->nama;
+        $uts[] = (float)$u->uts;
+        $uas[] = (float)$u->uas;
+    }
+?>
+
  <div class="content-wrapper">
         <section class="content-header">
           <h1>
@@ -36,9 +45,6 @@
         <th>TUGAS</th>
         <th>TOTAL</th>
         <th>GRADE</th>
-
-
-
 			</tr>
 			<?php
 			$no = 1;
@@ -74,5 +80,68 @@
         </div>
         </section>
 	</div>
+ 	<div class="content-wrapper">
+          <canvas id="myChart" width="400" height="400"></canvas>
+  </div>
 
- 	<div class="content-wrapper"></div>
+  <script>
+     var ctx = document.getElementById("myChart");
+     var myChart = new Chart(ctx, {
+         type: 'bar',
+         data: {
+             labels: <?php echo json_encode($nama); ?>,
+             datasets: [{
+                     label: 'Grafik Nilai Mahasiswa UTS',
+                     data: <?php echo json_encode($uts); ?>,
+                     backgroundColor: [
+                         'rgba(255, 99, 132, 0.2)',
+                         'rgba(54, 162, 235, 0.2)',
+                         'rgba(255, 206, 86, 0.2)',
+                         'rgba(75, 192, 192, 0.2)',
+                         'rgba(153, 102, 255, 0.2)',
+                         'rgba(255, 159, 64, 0.2)',
+                         'rgba(255, 99, 132, 0.2)',
+                         'rgba(54, 162, 235, 0.2)',
+                         'rgba(255, 206, 86, 0.2)',
+                         'rgba(75, 192, 192, 0.2)',
+                         'rgba(153, 102, 255, 0.2)',
+                         'rgba(255, 159, 64, 0.2)'
+                     ],
+                     borderColor: [
+                         'rgba(255,99,132,1)',
+                         'rgba(54, 162, 235, 1)',
+                         'rgba(255, 206, 86, 1)',
+                         'rgba(75, 192, 192, 1)',
+                         'rgba(153, 102, 255, 1)',
+                         'rgba(255, 159, 64, 1)',
+                         'rgba(255, 99, 132, 0.2)',
+                         'rgba(54, 162, 235, 0.2)',
+                         'rgba(255, 206, 86, 0.2)',
+                         'rgba(75, 192, 192, 0.2)',
+                         'rgba(153, 102, 255, 0.2)',
+                         'rgba(255, 159, 64, 0.2)'
+                     ],
+                     borderWidth: 1
+                 },
+                {
+                    label: "Grafik Nilai Mahasiswa UAS",
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    pointBackgroundColor: "rgba(255,99,132,1)",
+                    pointBorderColor: "#fff",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(255,99,132,1)",
+                    data: <?php echo json_encode($uas); ?>
+                }]
+         },
+         options: {
+             scales: {
+                 yAxes: [{
+                         ticks: {
+                             beginAtZero: true
+                         }
+                     }]
+             }
+         }
+     });
+ </script>

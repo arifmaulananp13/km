@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="{css_alt}">
     <link rel="stylesheet" href="{css_skin}">
     <link rel="stylesheet" href="{css_style}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
   </head>
   <body class="skin-blue sidebar-mini layout-boxed">
     <div class="wrapper">
@@ -89,7 +92,8 @@
             <li class="{active_8}"><a href="<?php echo base_url(). 'excel/input_nilai_akhir'; ?>"><i class="fa fa-circle-o"></i><span>Input Nilai Akhir</span></a></li>
             <li class="{active_9}"><a href="<?php echo base_url(). 'nilai/lihat_nilai'; ?>"><i class="fa fa-circle-o"></i><span>Lihat Nilai Harian</span></a></li>
             <li class="{active_10}"><a href="<?php echo base_url(). 'nilai/pre_nilai_akhir'; ?>"><i class="fa fa-circle-o"></i><span>Lihat Nilai Akhir</span></a></li>
-		  	</ul>
+            <li class="{active_11}"><a href="<?php echo base_url(). 'nilai/perbandingan_nilai_akhir'; ?>"><i class="fa fa-circle-o"></i><span>Lihat Nilai Perbandingan</span></a></li>
+        </ul>
 			</li>
 			<li class="{active_7}"><a href="<?php echo base_url('baprps/forum'); ?>"><i class="fa fa-comments"></i><span>Forum</span></a></li>
 			<li class="{active_12}"><a href="<?php echo base_url('baprps/edit'); ?>"><i class="fa fa-list"></i><span>User Management</span></a></li>

@@ -21,9 +21,6 @@ class nilai extends CI_Controller {
 		view('nilai/input_nilai',$data);
 	}
 
-
-
-
 	public function input_nilai2($id){
 		$data['title'] = "Input Nilai";
 		$data['active_11'] = "active";
@@ -83,7 +80,7 @@ class nilai extends CI_Controller {
 		$this->session->set_flashdata('category_error', 'Data Tidak Boleh Kosong!');
 		redirect($_SERVER['HTTP_REFERER']);
 
-	
+
 	}
 	}
 
@@ -102,6 +99,7 @@ class nilai extends CI_Controller {
 		$data['kelas'] = $this->combobox_model->getKelasAll();
 		view('nilai/pre_nilai_akhir',$data);
 		}
+
 		public function lihat_nilai_akhir(){
 		$data['title'] = "Lihat Nilai Akhir";
 		$dosen	= $this->input->post('dosen');
@@ -109,6 +107,25 @@ class nilai extends CI_Controller {
 		$kelas	= $this->input->post('kelas');
 		$data['data'] = $this->m_inputnilai->tampil_nilai_akhir($dosen, $matkul, $kelas);
 		view('nilai/lihat_nilai_akhir',$data);
+		}
+
+		//BARU
+
+		public function perbandingan_nilai_akhir(){
+				$data['title'] = "Table Perbandingan";
+				$data['matkul'] = $this->combobox_model->getMatkulAll();
+				$data['dosen'] = $this->combobox_model->getDosen();
+				view('nilai/perbandingan_nilai_akhir',$data);
+		}
+
+		public function lihat_perbandingan_nilai_akhir(){
+				$data['title'] = "Lihat Perbandingan Nilai Akhir";
+				$matkul = $this->input->post('matkul');
+				$dosen1	= $this->input->post('dosen');
+			  $dosen2  = $this->input->post('dosen2');
+				$data['dosen1'] = $this->m_inputnilai->tampil_nilai_akhir_perdosen($dosen1, $matkul);
+				$data['dosen2'] = $this->m_inputnilai->tampil_nilai_akhir_perdosen($dosen2, $matkul);
+				view('nilai/lihat_perbandingan_nilai_akhir',$data);
 		}
 
 		//IF download/upload,
