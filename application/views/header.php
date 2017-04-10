@@ -78,6 +78,7 @@
 			<li class="{active_6}"><a href="<?php echo base_url('baprps/jadwal'); ?>"><i class="fa fa-circle-o"></i><span>Input Jadwal Dosen</span></a></li>
             <li class="{active_4}"><a href="{l_lihatrps}"><i class="fa fa-circle-o"></i><span>Lihat RPS</span></a></li>
             <li class="{active_5}"><a href="{l_grafik}"><i class="fa fa-circle-o"></i><span>Table</span></a></li>
+			<li class="{active_13}"><a href="<?php echo base_url('baprps/chart'); ?>"><i class="fa fa-circle-o"></i><span>Grafik</span></a></li>
 			</ul>
 			</li>
 			<li class="treeview">

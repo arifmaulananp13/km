@@ -407,6 +407,13 @@ class Baprps extends CI_Controller {
 
 	$this->m_inputbap->update_data($where, $data,'user');
 	redirect('baprps/edit');
-}
+	}
+
+	public function chart(){
+		$data['title'] = "Grafik";
+		$data['active_13'] = "active";
+		view('rpsbap/chart',$data);
+		}	
+	
 		
 }
