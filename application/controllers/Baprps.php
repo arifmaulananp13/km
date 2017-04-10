@@ -271,7 +271,7 @@ class Baprps extends CI_Controller {
     }
 	
 	
-	function verif2($id){
+	public function verif2($id){
 		$data['title'] = "Verifikasi BAP";
 		$data['active_7'] = "active";
 		$where = array('id_bap' => $id);
@@ -371,10 +371,24 @@ class Baprps extends CI_Controller {
 	}
 	
 	public function edit(){
+		if ($this->session->userdata('level') == 'Sekretaris Kaprodi'){
 		$data['title'] = "User Management";
 		$data['active_12'] = "active";
 		$data['data']=$this->m_inputbap->user();
 		view('kkpage',$data);
+		}
+		elseif($this->session->userdata('level') == 'Mahasiswa'){
+		redirect('baprps/verif_bap');
+		}
+		elseif($this->session->userdata('level') == 'Dosen Pengajar'){
+		redirect('baprps/input_bap');
+		}
+		elseif($this->session->userdata('level') == 'Belum Aktif'){
+		redirect('baprps/forum');
+		}
+		else{
+		redirect('baprps/grafik');	
+		}
 	}
 	
 	public function edit2($id){
