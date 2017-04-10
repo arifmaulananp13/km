@@ -57,6 +57,7 @@ class Baprps extends CI_Controller {
 		$ruangan = $this->input->post('ruangan');
 		$kelas = $this->input->post('kelas');		
 		$materi = $this->input->post('materi');
+		$materitambahan = $this->input->post('materitambahan');
 		
 		$data = array(
 			'dosen' => $dosen,
@@ -65,7 +66,8 @@ class Baprps extends CI_Controller {
 			'shift' => $shift,
 			'ruangan' => $ruangan,
 			'kelas' => $kelas,
-			'materi' => $materi
+			'materi' => $materi,
+			'materitambahan' => $materitambahan
 			);
 
 		if(isset($_POST['materi'])){
