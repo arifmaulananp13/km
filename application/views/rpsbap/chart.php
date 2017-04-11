@@ -14,9 +14,9 @@
         	<div class="box-body">
 <canvas id="myChart" width="400" height="100"></canvas>
 <script>
-var ctx = document.getElementById("myChart");
+var ctx = $("#myChart");
 var myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [{

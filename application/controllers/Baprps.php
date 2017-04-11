@@ -286,9 +286,10 @@ class Baprps extends CI_Controller {
 		$kelas = $this->input->post('kelas');		
 		$shift = $this->input->post('shift');
 		$ruangan = $this->input->post('ruangan');
-		$materi = $this->input->post('materi');
+		$materiajar = $this->input->post('materiajar');
 		$status = $this->input->post('status');
 		$ket = $this->input->post ('ket');
+		$namauser = $this->input->post ('namauser');
 		
 		$data = array(
 			'dosen' => $dosen,
@@ -297,11 +298,12 @@ class Baprps extends CI_Controller {
 			'kelas' => $kelas,	
 			'shift' => $shift,
 			'ruangan' => $ruangan,
-			'materi' => $materi,
 			'status' => $status,
+			'materiajar' => $materiajar,			
 			'ket' => $ket,
+			'namauser' => $namauser
 			);
-		if(isset($_POST['status'])){
+		if(isset($_POST['status'])&& isset($_POST['materiajar'])){
 		$this->m_inputbap->input_data($data,'verif_bap');
 		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('baprps/verif_bap');

@@ -76,9 +76,11 @@
 					$no = 1;
 					foreach($data as $u){
 				?>
-					<textarea name="materi" id="materi" type="text" class="form-control" rows="5" placeholder="<?php echo $u->materi ?>" readonly required=""></textarea>
+					<textarea  type="text" class="form-control" rows="5" placeholder="<?php echo $u->materi ?>.<?php echo $u->materitambahan ?>" readonly></textarea>
+					<input class="form-control" type="hidden" value="<?php echo $u->materi ?>.<?php echo $u->materitambahan ?>" id="materiajar" name="materiajar" readonly>
 				<?php } ?>
         	</div>
+			<input class="form-control" type="hidden" value="<?php echo $this->session->userdata('nama_user')?>" id="namauser" name="namauser" readonly>
 			 <div class="col-md-6 form-group">
 			<label class="radio-inline"><input type="radio"  value="sesuai" name="status">Sesuai</label>
 			<label class="radio-inline"><input type="radio"  value="tidak sesuai" name="status">Tidak Sesuai</label>
