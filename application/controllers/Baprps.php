@@ -204,6 +204,45 @@ class Baprps extends CI_Controller {
 	view('rpsbap/tabel',$data);
 	}
 
+	public function satuobjek(){
+		if ($this->session->userdata('level') == 'Dosen Koordinator'){
+		$data['title'] = "Table";
+		$data['active_5'] = "active";
+		$data['dosen'] = $this->combobox_model->getDosen();
+		$data['matkul'] = $this->combobox_model->getMatkulAll();
+		$data['kelas'] = $this->combobox_model->getKelasAll();
+		view('rpsbap/1objek',$data);
+		}		
+		elseif($this->session->userdata('level') == 'Mahasiswa'){
+		redirect('baprps/verif_bap');
+		}
+		elseif($this->session->userdata('level') == 'Dosen Pengajar'){
+		redirect('baprps/input_bap');
+		}
+		elseif($this->session->userdata('level') == 'Sekretaris Kaprodi'){
+		redirect('baprps/forum');
+		}
+		elseif($this->session->userdata('level') == 'Belum Aktif'){
+		redirect('baprps/forum');
+		}
+		else{
+		$data['title'] = "Table";
+		$data['active_5'] = "active";
+		$data['dosen'] = $this->combobox_model->getDosen();
+		$data['matkul'] = $this->combobox_model->getMatkulAll();
+		$data['kelas'] = $this->combobox_model->getKelasAll();
+		view('rpsbap/1objek',$data);
+		}
+		}
+		
+	public function aksi_satuobjek(){
+	$data['title'] = "Table";
+	$dosen	= $this->input->post('dosen');
+	$matkul	= $this->input->post('matkul');
+	$kelas	= $this->input->post('kelas');	
+	$data['data'] = $this->m_login->sesuai($dosen, $matkul, $kelas);
+	view('rpsbap/1objek2',$data);
+	}
 
 		
 

@@ -13,7 +13,7 @@
 			</div>
 
 			<div class="box-body">
-            <div class="col-md-6 form-group">
+            <div class="col-md-12 form-group">
         	<table class ="table table-bordered" >
 			<tr>
 			<?php
@@ -53,42 +53,6 @@
 			</tr>
 			</table>
             </div>
-
-			<div class="col-md-6 form-group">
-        	<table class ="table table-bordered" >
-			<tr>
-			<?php
-			$no = 1;
-			foreach(array_slice($data1,0,1) as $i){
-			?>
-				<td><p>Dosen : <?php echo $i->dosen ?></p>
-					<p>Mata Kuliah : <?php echo $i->matkul ?></p>
-					<p>Kelas : <?php echo $i->kelas ?></p>
-				
-				</td>
-
-
-			<?php } ?>
-			</tr>
-			</table>
-			
-			<table class ="table table-bordered" >
-			<tr>
-				<th>Pertemuan</th>
-				<th>Kelas</th>
-				<th>Status</th>
-			</tr>
-			<?php
-			$no = 1;
-			foreach($data1 as $i){
-			?>
-			<tr>
-				<td><?php echo $no++?></td>
-				<td><?php echo $i->kelas ?></td>
-				<td><?php echo $i->status ?></td>
-			<?php } ?>
-			</tr>
-			</table>
             </div>
 
         	</div>
