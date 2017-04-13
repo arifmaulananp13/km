@@ -110,36 +110,6 @@ class Baprps extends CI_Controller {
 		redirect('baprps/grafik');	
 		}
 	}
-
-	public function lihat_rps(){
-		if ($this->session->userdata('level') == 'Sekretaris Kaprodi'){
-		$data['title'] = "Lihat RPS";
-		$data['active_4'] = "active";
-		$data['data']=$this->m_inputbap->tampil_rps();
-		view('rpsbap/lihat_rps',$data);
-		}
-		elseif ($this->session->userdata('level') == 'Mahasiswa'){
-		$data['title'] = "Lihat RPS";
-		$data['active_4'] = "active";
-		$data['data']=$this->m_inputbap->tampil_rps();
-		view('rpsbap/lihat_rps',$data);
-		}		
-		elseif ($this->session->userdata('level') == 'Ketua Kelompok Keahlian'){
-		$data['title'] = "Lihat RPS";
-		$data['active_4'] = "active";
-		$data['data']=$this->m_inputbap->tampil_rps();
-		view('rpsbap/lihat_rps',$data);
-		}
-		elseif($this->session->userdata('level') == 'Dosen Pengajar'){
-		redirect('baprps/input_bap');
-		}
-		elseif($this->session->userdata('level') == 'Belum Aktif'){
-		redirect('baprps/forum');
-		}
-		else{
-		redirect('baprps/grafik');	
-		}		
-	}
 	
 	public function download($fileName = NULL) {
 	$this->load->helper('download');
