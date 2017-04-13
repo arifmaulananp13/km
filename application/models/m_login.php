@@ -52,6 +52,25 @@ function sesuai1($dosen1, $matkul1, $kelas1){
      return false;
    }
  }
+
+
+function sesuai2($pertemuan){
+   $this -> db -> select('*');
+   $this -> db -> from('verif_bap');
+   $this -> db -> where('pertemuan', $pertemuan);
+   $this -> db -> limit(100);
+ 
+   $query = $this -> db -> get();
+ 
+   if($query -> num_rows() > 0)
+   {
+     return $query->result();
+   }
+   else
+   {
+     return false;
+   }
+ }
 }
 
 

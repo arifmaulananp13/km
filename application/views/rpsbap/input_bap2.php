@@ -28,6 +28,13 @@
 					<p>Shift : <?php echo $u->shift ?> </p>
 					<p>Ruangan : <?php echo $u->ruangan ?> </p>
 					<?php } ?>
+					<p>Pertemuan :
+				<select name="pertemuan" id="pertemuan" class="form-control" required="">
+                  <option disabled="" selected="">Pertemuan</option>
+				  <?php foreach($pertemuan as $p){ ?>
+				  <option value="<?php echo $p['pertemuan']; ?>"><?php echo $p['pertemuan']; ?></option>
+				  <?php } ?>
+                </select>
 					<p>Tanggal :					
 	        		<div class="input-group">
 		        		<span class="input-group-addon">

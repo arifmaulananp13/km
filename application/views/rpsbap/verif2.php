@@ -22,19 +22,15 @@
 					$no = 1;
 					foreach($data as $u){
 					?>
+					<p>Pertemuan : <?php echo $u->pertemuan ?> </p>
+					<p>Tanggal : <?php echo $u->no_tanggal ?> </p>
 					<p>Dosen : <?php echo $u->dosen ?> </p>
 					<p>Mata Kuliah : <?php echo $u->matkul ?> </p>
 					<p>Kelas : <?php echo $u->kelas ?> </p>
 					<p>Shift : <?php echo $u->shift ?> </p>
 					<p>Ruangan : <?php echo $u->ruangan ?> </p>
-					<?php } ?>
-					<p>Tanggal :					
-	        		<div class="input-group">
-		        		<span class="input-group-addon">
-		        			<i class="fa fa-calendar"></i>
-		        		</span>
-		            	<input name="tanggal" class="form-control" type="date" required="">					
-					</div>
+		
+					<?php } ?>					
 	        	</div>			
              <div class="col-md-6 form-group">                 
 					<?php
@@ -44,6 +40,7 @@
 				  <input class="form-control" type="hidden" value="<?php echo $u->dosen ?>" id="dosen" name="dosen" readonly>
 				  <input class="form-control" type="hidden" value="<?php echo $u->shift ?>" id="shift" name="shift" readonly>
 				  <input class="form-control" type="hidden" value="<?php echo $u->ruangan ?>" id="ruangan" name="ruangan" readonly>
+				  <input class="form-control" type="hidden" value="<?php echo $u->pertemuan ?>" id="pertemuan" name="pertemuan" readonly>
 				  <?php } ?>
             </div>
              <div class="col-md-6 form-group">   

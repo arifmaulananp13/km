@@ -46,6 +46,7 @@ class Baprps extends CI_Controller {
 		$where = array('id_jadwal' => $id);
 		$data['data'] = $this->m_inputbap->verif_data($where,'input_jadwal')->result();
 		$data['matkul'] = $this->m_inputbap->getrps($matkul)->result();
+		$data['pertemuan'] = $this->combobox_model->getPertemuanAll();
 		view('rpsbap/input_bap2',$data);	
 	}
 
@@ -58,6 +59,7 @@ class Baprps extends CI_Controller {
 		$kelas = $this->input->post('kelas');		
 		$materi = $this->input->post('materi');
 		$materitambahan = $this->input->post('materitambahan');
+		$pertemuan = $this->input->post('pertemuan');
 		
 		$data = array(
 			'dosen' => $dosen,
@@ -67,7 +69,8 @@ class Baprps extends CI_Controller {
 			'ruangan' => $ruangan,
 			'kelas' => $kelas,
 			'materi' => $materi,
-			'materitambahan' => $materitambahan
+			'materitambahan' => $materitambahan,
+			'pertemuan' => $pertemuan			
 			);
 
 		if(isset($_POST['materi'])){
@@ -213,6 +216,42 @@ class Baprps extends CI_Controller {
 	$data['data'] = $this->m_login->sesuai($dosen, $matkul, $kelas);
 	view('rpsbap/1objek2',$data);
 	}
+		
+	public function perpertemuan(){
+		if ($this->session->userdata('level') == 'Dosen Koordinator'){
+		$data['title'] = "Table";
+		$data['active_5'] = "active";
+		$data['pertemuan'] = $this->combobox_model->getPertemuanAll();
+		view('rpsbap/per_pertemuan',$data);
+		}		
+		elseif($this->session->userdata('level') == 'Mahasiswa'){
+		redirect('baprps/verif_bap');
+		}
+		elseif($this->session->userdata('level') == 'Dosen Pengajar'){
+		redirect('baprps/input_bap');
+		}
+		elseif($this->session->userdata('level') == 'Sekretaris Kaprodi'){
+		redirect('baprps/forum');
+		}
+		elseif($this->session->userdata('level') == 'Belum Aktif'){
+		redirect('baprps/forum');
+		}
+		else{
+		$data['title'] = "Table";
+		$data['active_5'] = "active";
+		$data['pertemuan'] = $this->combobox_model->getPertemuanAll();
+		view('rpsbap/per_pertemuan',$data);
+		}
+		}
+		
+	public function aksi_perpertemuan(){
+	$data['title'] = "Table";
+	$pertemuan	= $this->input->post('pertemuan');
+	$data['data'] = $this->m_login->sesuai2($pertemuan);
+	view('rpsbap/per_pertemuan2',$data);
+	}
+		
+
 
 		
 
@@ -299,6 +338,7 @@ class Baprps extends CI_Controller {
 		$status = $this->input->post('status');
 		$ket = $this->input->post ('ket');
 		$namauser = $this->input->post ('namauser');
+		$pertemuan = $this->input->post ('pertemuan');
 		
 		$data = array(
 			'dosen' => $dosen,
@@ -310,7 +350,8 @@ class Baprps extends CI_Controller {
 			'status' => $status,
 			'materiajar' => $materiajar,			
 			'ket' => $ket,
-			'namauser' => $namauser
+			'namauser' => $namauser,
+			'pertemuan' => $pertemuan
 			);
 		if(isset($_POST['status'])&& isset($_POST['materiajar'])){
 		$this->m_inputbap->input_data($data,'verif_bap');
