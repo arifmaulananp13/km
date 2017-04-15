@@ -35,20 +35,23 @@
         	<table class ="table table-bordered" >
 			<tr>
 				<th>Pertemuan</th>
-				<th>Kelas</th>
+				<th>Materi</th>
 				<th>Status</th>
+				<th>Validator</th>
+				<th>Keterangan</th>
 			</tr>
 
 			
 
 			<?php
-			$no = 1;
 			foreach($data as $u){
 			?>
 			<tr>
-				<td><?php echo $no++?></td>
-				<td><?php echo $u->kelas ?></td>
+				<td><?php echo $u->pertemuan ?></td>
+				<td><?php echo $u->materiajar ?></td>
 				<td><?php echo $u->status ?></td>
+				<td><?php echo $u->namauser ?></td>
+				<td><?php echo $u->ket ?></td>
 			<?php } ?>
 			</tr>
 			</table>

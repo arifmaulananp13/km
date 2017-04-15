@@ -15,7 +15,7 @@
 					<h4><i class="icon fa fa-check"></i><?= $this->session->flashdata('category_success') ?></h4>
 					</div>
 			<?php } ?>
-			</div>
+
         	</div>
         	<div class="box-body">
 			<div class="col-md-12 form-group ">

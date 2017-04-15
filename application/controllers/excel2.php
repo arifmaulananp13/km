@@ -78,8 +78,7 @@ class Excel2 extends CI_Controller {
                     
                     "PERTEMUAN"=> $rowData[0][0],
                     "MATERI"=> $rowData[0][1],
-                    "DOSEN"=> $rowData[0][2],
-                    "MATKUL"=> $rowData[0][3]
+                    "MATKUL"=> $rowData[0][2]
                 );
 
 

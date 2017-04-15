@@ -248,8 +248,19 @@ class Baprps extends CI_Controller {
 	$data['title'] = "Table";
 	$pertemuan	= $this->input->post('pertemuan');
 	$data['data'] = $this->m_login->sesuai2($pertemuan);
+	$data['matkul'] = $this->combobox_model->getMatkulAll();
 	view('rpsbap/per_pertemuan2',$data);
 	}
+	
+	public function filter(){
+	$data['title'] = "Table";
+	$pertemuan	= $this->input->post('pertemuan');
+	$matkul	= $this->input->post('matkul');
+	$data['data'] = $this->m_login->sesuai3($pertemuan,$matkul);
+	$data['matkul'] = $this->combobox_model->getMatkulAll();
+	view('rpsbap/per_pertemuan3',$data);
+	}
+	
 		
 
 
