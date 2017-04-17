@@ -55,6 +55,7 @@
 				<th>Kelas</th>
 				<th>Dosen</th>
 				<th>Status</th>
+				<th></th>
 			</tr>
 
 			<?php
@@ -67,6 +68,7 @@
 				<td><?php echo $u->kelas ?></td>
 				<td><?php echo $u->dosen ?></td>
 				<td><?php echo $u->status ?></td>
+				<td><a href="<?php echo base_url('baprps/detailperpertemuan/'.$u->id_verif); ?>" action="post" target="_blank" type="submit">Detail</a></td>
 			<?php } ?>
 			</tr>
 			</table>

@@ -261,6 +261,13 @@ class Baprps extends CI_Controller {
 	view('rpsbap/per_pertemuan3',$data);
 	}
 	
+	public function detailperpertemuan($id){
+		$data['title'] = "Table";
+		$where = array('id_verif' => $id);
+		$data['data'] = $this->m_inputbap->verif_data($where,'verif_bap')->result();
+		view('rpsbap/per_pertemuan_detail',$data);
+	}	
+	
 		
 
 
