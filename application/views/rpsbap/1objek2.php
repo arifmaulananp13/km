@@ -32,13 +32,13 @@
 			</table>
 
 			
-        	<table class ="table table-bordered" >
+        	<table class ="table table-striped-bordered" >
 			<tr>
-				<th>Pertemuan</th>
-				<th>Materi</th>
-				<th>Status</th>
-				<th>Validator</th>
-				<th>Keterangan</th>
+				<th class="col-md-1 text-center">Pertemuan</th>
+				<th class="col-md-4 text-center">Materi</th>
+				<th class="col-md-2 text-center">Status</th>
+				<th class="col-md-2 text-center">Validator</th>
+				<th class="col-md-3 text-center">Keterangan</th>
 			</tr>
 
 			
@@ -47,7 +47,7 @@
 			foreach($data as $u){
 			?>
 			<tr>
-				<td><?php echo $u->pertemuan ?></td>
+				<td class="text-center"><?php echo $u->pertemuan ?></td>
 				<td><?php echo $u->materiajar ?></td>
 				<td><?php echo $u->status ?></td>
 				<td><?php echo $u->namauser ?></td>

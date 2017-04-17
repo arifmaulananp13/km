@@ -8,7 +8,7 @@
 		  <div class="col-md-12 with-padding">
         <form class="box box-primary">
 			<div class="box-header with-border">
-			Result Per Pertemuan
+			Detail BAP
 			</div>
 
 			<div class="box-body">
