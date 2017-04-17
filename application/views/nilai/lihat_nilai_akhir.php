@@ -81,7 +81,7 @@
         </section>
 	</div>
  	<div class="content-wrapper">
-          <canvas id="myChart" width="400" height="400"></canvas>
+          <canvas id="myChart" width="400" height="200"></canvas>
   </div>
 
   <script>
