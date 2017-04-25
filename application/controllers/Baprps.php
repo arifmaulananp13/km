@@ -24,11 +24,18 @@ class Baprps extends CI_Controller {
 		elseif($this->session->userdata('level') == 'Ketua Kelompok Keahlian'){
 		$data['title'] = "Input BAP";
 		$data['active_1'] = "active";
-		$data['data']=$this->m_inputbap->jadwal();
+		$dosen = $this->session->userdata('nama_user');
+		$where = array('dosen' => $dosen);
+		$data['data'] = $this->m_inputbap->verif_data($where,'input_jadwal')->result();
 		view('rpsbap/input_bap',$data);
 		}
 		elseif($this->session->userdata('level') == 'Sekretaris Kaprodi'){
-		redirect('baprps/forum');
+		$data['title'] = "Input BAP";
+		$data['active_1'] = "active";
+		$dosen = $this->session->userdata('nama_user');
+		$where = array('dosen' => $dosen);
+		$data['data'] = $this->m_inputbap->verif_data($where,'input_jadwal')->result();
+		view('rpsbap/input_bap',$data);
 		} 	
 		elseif($this->session->userdata('level') == 'Mahasiswa'){
 		redirect('baprps/verif_bap');
@@ -37,7 +44,12 @@ class Baprps extends CI_Controller {
 		redirect('baprps/forum');
 		}		
 		else{
-		redirect('baprps/grafik');	
+		$data['title'] = "Input BAP";
+		$data['active_1'] = "active";
+		$dosen = $this->session->userdata('nama_user');
+		$where = array('dosen' => $dosen);
+		$data['data'] = $this->m_inputbap->verif_data($where,'input_jadwal')->result();
+		view('rpsbap/input_bap',$data);	
 		}
 		}
 	
