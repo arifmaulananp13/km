@@ -23,7 +23,6 @@
 				<td><p>Dosen : <?php echo $u->dosen ?></p>
 					<p>Mata Kuliah : <?php echo $u->matkul ?></p>
 					<p>Kelas : <?php echo $u->kelas ?></p>
-				
 				</td>
 
 

@@ -49,6 +49,7 @@
 				<td><?php echo $no++?></td>
 				<td><?php echo $u->kelas ?></td>
 				<td><?php echo $u->status ?></td>
+				<td><a href="<?php echo base_url('baprps/detailperpertemuan/'.$u->id_verif); ?>" action="post" target="_blank" type="submit">Detail</a></td>
 			<?php } ?>
 			</tr>
 			</table>
@@ -64,7 +65,6 @@
 				<td><p>Dosen : <?php echo $i->dosen ?></p>
 					<p>Mata Kuliah : <?php echo $i->matkul ?></p>
 					<p>Kelas : <?php echo $i->kelas ?></p>
-				
 				</td>
 
 
@@ -86,6 +86,7 @@
 				<td><?php echo $no++?></td>
 				<td><?php echo $i->kelas ?></td>
 				<td><?php echo $i->status ?></td>
+				<td><a href="<?php echo base_url('baprps/detailperpertemuan/'.$u->id_verif); ?>" action="post" target="_blank" type="submit">Detail</a></td>
 			<?php } ?>
 			</tr>
 			</table>
