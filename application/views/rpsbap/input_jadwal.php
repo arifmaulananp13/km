@@ -37,7 +37,7 @@
 		        	<select name="matkul" id="matkul" class="form-control" required>
 		            <option disabled="" selected="">Mata Kuliah</option>
 					<?php foreach($matkul as $m) {?>
-					<option value="<?php echo $m['id_matkul']; ?>"><?php echo $m['nama_matkul']; ?></option>
+					<option value="<?php echo $m['nama_matkul']; ?>"><?php echo $m['nama_matkul']; ?></option>
 					<?php } ?> 					
 		            </select>
 	        	</div>
@@ -98,8 +98,8 @@
 <?php 
 $this->load->model('combobox_model');
 foreach($matkul as $dm) { ?>
-	var <?php echo str_replace(' ','',$dm['nama_matkul'].$dm['id_matkul']); ?> = [
-		<?php $resultM = $this->combobox_model->getKode($dm['id_matkul']); ?>
+	var <?php echo str_replace(' ','',$dm['nama_matkul'].$dm['nama_matkul']); ?> = [
+		<?php $resultM = $this->combobox_model->getKode($dm['nama_matkul']); ?>
 		<?php foreach ($resultM as $rm) { ?>
         {display: "<?php echo $rm['kode_matkul']; ?>", value: "<?php echo $rm['kode_matkul']; ?>" },
 		<?php } ?>];
@@ -110,8 +110,8 @@ $("#matkul").change(function() {
              var parent = $(this).val();
             switch(parent){
 				<?php foreach($matkul as $dd){ ?>
-              case '<?php echo $dd['id_matkul']; ?>':
-                 list(<?php echo str_replace(' ','',$dd['nama_matkul'].$dd['id_matkul']); ?>);
+              case '<?php echo $dd['nama_matkul']; ?>':
+                 list(<?php echo str_replace(' ','',$dd['nama_matkul'].$dd['nama_matkul']); ?>);
                 break;
 				<?php } ?> 
               default: //default child option is blank

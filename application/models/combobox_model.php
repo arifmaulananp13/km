@@ -99,7 +99,7 @@ class Combobox_model extends CI_Model {
 	
 	function getKode($idMatkul) {
 		$data = array();
-		$query = $this->db->get_where('table_kodematkul', array('id_matkul' => $idMatkul));
+		$query = $this->db->get_where('table_kodematkul', array('nama_matkul' => $idMatkul));
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row){
 		         	$data[] = $row;
