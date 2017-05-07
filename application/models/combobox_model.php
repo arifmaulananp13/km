@@ -96,6 +96,18 @@ class Combobox_model extends CI_Model {
 		$query->free_result();
 		return $data;
 	}
+	
+	function getKode($idMatkul) {
+		$data = array();
+		$query = $this->db->get_where('table_kodematkul', array('id_matkul' => $idMatkul));
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row){
+		         	$data[] = $row;
+		        }
+		}	
+		$query->free_result();
+		return $data;	
+	}
 
 
 

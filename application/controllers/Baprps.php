@@ -313,14 +313,16 @@ class Baprps extends CI_Controller {
 		$hari = $this->input->post('hari');
 		$shift = $this->input->post('shift');
 		$ruangan = $this->input->post('ruangan');
-
+		$kode_matkul = $this->input->post('kode_matkul');
+		
 		$data = array(
 			'dosen' => $dosen,
 			'matkul' => $matkul,
 			'kelas' => $kelas,
 			'hari' => $hari,
 			'shift' => $shift,
-			'ruangan' => $ruangan
+			'ruangan' => $ruangan,
+			'kode_matkul'=> $kode_matkul
 			);
 		if(isset($_POST['dosen']) && isset($_POST['matkul']) && isset($_POST['kelas']) && isset($_POST['hari']) && isset($_POST['shift']) && isset($_POST['ruangan'])){	
 		$this->m_inputbap->input_data($data,'input_jadwal');
