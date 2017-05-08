@@ -37,11 +37,11 @@ class Baprps extends CI_Controller {
 		}
 		}
 	
-		public function input_bap2($id,$matkul){
+		public function input_bap2($id,$kode_matkul){
 		$data['title'] = "Input BAP";
 		$where = array('id_jadwal' => $id);
 		$data['data'] = $this->m_inputbap->verif_data($where,'input_jadwal')->result();
-		$data['matkul'] = $this->m_inputbap->getrps($matkul)->result();
+		$data['kode_matkul'] = $this->m_inputbap->getrps($kode_matkul)->result();
 		$data['pertemuan'] = $this->combobox_model->getPertemuanAll();
 		view('rpsbap/input_bap2',$data);	
 	}

@@ -109,6 +109,29 @@ class Combobox_model extends CI_Model {
 		return $data;	
 	}
 
+	function getMatkul($dosen) {
+		$data = array();
+		$query = $this->db->get_where('input_jadwal', array('dosen' => $dosen));
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row){
+		         	$data[] = $row;
+		        }
+		}	
+		$query->free_result();
+		return $data;	
+	}	
+
+	function getKelas($matkul) {
+		$data = array();
+		$query = $this->db->get_where('input_jadwal', array('kode_matkul' => $matkul));
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row){
+		         	$data[] = $row;
+		        }
+		}	
+		$query->free_result();
+		return $data;	
+	}
 
 
 }
