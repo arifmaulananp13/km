@@ -6,7 +6,7 @@
         </section>
         <section class="content">
 		  <div class="col-md-12 with-padding">
-        <form <form action="<?php echo base_url(). 'baprps/input_bap_post'; ?>" method="post" class="box box-primary">
+        <form action="<?php echo base_url(). 'baprps/input_bap_post'; ?>" method="post" class="box box-primary">
         	<div class="box-header with-border">
         		Input BAP
 	<?php if ($this->session->flashdata('category_error')) { ?>
@@ -85,15 +85,19 @@
 			</tr>
 			<?php
 			$no = 1;
-			foreach($matkul as $i){
+			foreach($kode_matkul as $i){
 			?>
 			<tr>
 				<td>
-				<input type="checkbox" name="materi" id="materi" value="<?php echo $i->materi ?>" readonly>
-				<?php echo $i->pertemuan ?></td>
+				<input type="checkbox" name="materi" id="materi" value="<?php echo $i->materi ?>">
+				<?php echo $i->pertemuan ?>	</td>
 				<td><?php echo $i->materi ?></td>	
 			</tr>
 			<?php } ?>
+			<tr>
+				<td><input type="checkbox" name="materi" id="materi" value="Dan lain-lain"></td>
+				<td>Dan lain-lain</td>
+			</tr>
 			</table>
 			</div>
 				<div class="col-md-12 form-group">
@@ -104,10 +108,8 @@
         		</div>
         	
         </form>
-		</form>
-        </div>
+		</div>
         </section>
 		<div class="content-wrapper">
 		</div>
  
-	

@@ -69,7 +69,7 @@ class Baprps extends CI_Controller {
 			'pertemuan' => $pertemuan			
 			);
 
-		if(isset($_POST['materi'])){
+		if(isset($_POST['tanggal']) && isset($_POST['pertemuan']) && isset($_POST['materitambahan'])){
 		$this->m_inputbap->input_data($data,'input_bap');
 		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('baprps/input_bap');
