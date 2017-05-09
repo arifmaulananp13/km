@@ -40,7 +40,7 @@
 				<td><?php echo $u->no_tanggal ?></td>
 				<td><?php echo $u->shift ?></td>
 				<td><?php echo $u->ruangan ?></td>
-				<td><a href="<?php echo base_url('baprps/verif2/'.$u->id_bap); ?>" type="submit" class="btn btn-default btn-flat">Verifikasi</a></td>
+				<td><a href="<?php echo base_url('baprps/verif2/'.$u->id_bap.'/'.$u->kode_matkul); ?>" type="submit" class="btn btn-default btn-flat">Verifikasi BAP</a></td>
 			</tr>
 			<?php } ?>
 			</table>

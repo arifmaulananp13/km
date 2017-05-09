@@ -56,6 +56,7 @@ class Baprps extends CI_Controller {
 		$materi = $this->input->post('materi');
 		$materitambahan = $this->input->post('materitambahan');
 		$pertemuan = $this->input->post('pertemuan');
+		$kode_matkul = $this->input->post('kode_matkul');
 		
 		$data = array(
 			'dosen' => $dosen,
@@ -66,7 +67,8 @@ class Baprps extends CI_Controller {
 			'kelas' => $kelas,
 			'materi' => $materi,
 			'materitambahan' => $materitambahan,
-			'pertemuan' => $pertemuan			
+			'pertemuan' => $pertemuan,
+			'kode_matkul' => $kode_matkul
 			);
 
 		if(isset($_POST['tanggal']) && isset($_POST['pertemuan']) && isset($_POST['materitambahan'])){
@@ -335,14 +337,15 @@ class Baprps extends CI_Controller {
     }
 	
 	
-	public function verif2($id){
+	public function verif2($id,$kode_matkul){
 		$data['title'] = "Verifikasi BAP";
 		$data['active_7'] = "active";
 		$where = array('id_bap' => $id);
 		$data['data'] = $this->m_inputbap->verif_data($where,'input_bap')->result();
+		$data['kode_matkul'] = $this->m_inputbap->getrps($kode_matkul)->result();
 		view('rpsbap/verif2',$data);
 	}
-
+	
 	public function verif_bap_post(){
 		$dosen = $this->input->post('dosen');
 		$matkul = $this->input->post('matkul');
@@ -350,9 +353,8 @@ class Baprps extends CI_Controller {
 		$kelas = $this->input->post('kelas');		
 		$shift = $this->input->post('shift');
 		$ruangan = $this->input->post('ruangan');
-		$materiajar = $this->input->post('materiajar');
-		$status = $this->input->post('status');
-		$ket = $this->input->post ('ket');
+		$materi = $this->input->post('materi');
+		$materitambahan = $this->input->post ('materitambahan');
 		$namauser = $this->input->post ('namauser');
 		$pertemuan = $this->input->post ('pertemuan');
 		
@@ -363,13 +365,12 @@ class Baprps extends CI_Controller {
 			'kelas' => $kelas,	
 			'shift' => $shift,
 			'ruangan' => $ruangan,
-			'status' => $status,
-			'materiajar' => $materiajar,			
-			'ket' => $ket,
+			'materi' => $materi,			
+			'materitambahan' => $materitambahan,
 			'namauser' => $namauser,
 			'pertemuan' => $pertemuan
 			);
-		if(isset($_POST['status'])&& isset($_POST['materiajar'])){
+		if(isset($_POST['materi'])){
 		$this->m_inputbap->input_data($data,'verif_bap');
 		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('baprps/verif_bap');

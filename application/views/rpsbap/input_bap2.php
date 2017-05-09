@@ -18,30 +18,49 @@
 			</div>
         	<div class="box-body">
 			<div class="col-md-6 form-group"> 
+			<table class="table no-border">
 					<?php
 					$no = 1;
 					foreach($data as $u){
 					?>
-					<p>Dosen : <?php echo $u->dosen ?> </p>
-					<p>Mata Kuliah : <?php echo $u->matkul ?> </p>
-					<p>Kelas : <?php echo $u->kelas ?> </p>
-					<p>Shift : <?php echo $u->shift ?> </p>
-					<p>Ruangan : <?php echo $u->ruangan ?> </p>
+					<tr>
+						<td class="col-md-3">Dosen</td>
+						<td>: <?php echo $u->dosen ?></td>
+					</tr>
+					<tr>
+						<td>Mata Kuliah</td>
+						<td>: <?php echo $u->matkul ?></td>
+					</tr>
+					<tr>
+						<td>Kelas</td>
+						<td>: <?php echo $u->kelas ?></td>
+					</tr>
+					<tr>
+						<td>Shift</td>
+						<td>: <?php echo $u->shift ?></td>
+					</tr>
+					<tr>
+						<td>Ruangan</td>
+						<td>: <?php echo $u->ruangan ?></td>
+					</tr>
 					<?php } ?>
-					<p>Pertemuan :
+			</table>
+					<div>
 				<select name="pertemuan" id="pertemuan" class="form-control" required="">
                   <option disabled="" selected="">Pertemuan</option>
 				  <?php foreach($pertemuan as $p){ ?>
 				  <option value="<?php echo $p['pertemuan']; ?>"><?php echo $p['pertemuan']; ?></option>
 				  <?php } ?>
                 </select>
-					<p>Tanggal :					
+					</div>	
+					<br>
 	        		<div class="input-group">
 		        		<span class="input-group-addon">
 		        			<i class="fa fa-calendar"></i>
 		        		</span>
 		            	<input name="tanggal" class="form-control" type="date" required="">					
 					</div>
+
 	        	</div>
 			
 			 <div class="col-md-6 form-group">                 
@@ -75,6 +94,7 @@
 					?>
 				  <input type="hidden" class="form-control" type="text" value="<?php echo $u->shift ?>" id="shift" name="shift" readonly>
 				  <input type="hidden" class="form-control" type="text" value="<?php echo $u->ruangan ?>" id="ruangan" name="ruangan" readonly>
+				  <input type="hidden" class="form-control" type="text" value="<?php echo $u->kode_matkul ?>" id="kode_matkul" name="kode_matkul" readonly>
 				  <?php } ?>
             </div>
 			<div class="col-md-12 form-group">

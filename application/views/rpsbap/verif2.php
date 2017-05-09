@@ -18,19 +18,41 @@
         	</div>
         	<div class="box-body">
 			<div class="col-md-6 form-group"> 
+			<table class="table no-border">
 					<?php
 					$no = 1;
 					foreach($data as $u){
 					?>
-					<p>Pertemuan : <?php echo $u->pertemuan ?> </p>
-					<p>Tanggal : <?php echo $u->no_tanggal ?> </p>
-					<p>Dosen : <?php echo $u->dosen ?> </p>
-					<p>Mata Kuliah : <?php echo $u->matkul ?> </p>
-					<p>Kelas : <?php echo $u->kelas ?> </p>
-					<p>Shift : <?php echo $u->shift ?> </p>
-					<p>Ruangan : <?php echo $u->ruangan ?> </p>
-		
-					<?php } ?>					
+					<tr>
+					<td class="col-md-3">Pertemuan </td>
+						<td>: <?php echo $u->pertemuan ?></td>
+					</tr>
+					<tr>
+						<td>Tanggal</td>
+						<td>: <?php echo $u->no_tanggal ?></td>
+					</tr>
+					<tr>
+						<td>Dosen</td>
+						<td>: <?php echo $u->dosen ?></td>
+					</tr>
+					<tr>
+						<td>Mata Kuliah</td>
+						<td>: <?php echo $u->matkul ?></td>
+					</tr>
+					<tr>
+						<td>Kelas</td>
+						<td>: <?php echo $u->kelas ?></td>
+					</tr>
+					<tr>
+						<td>Shift</td>
+						<td>: <?php echo $u->shift ?></td>
+					</tr>
+					<tr>
+						<td>Ruangan</td>
+						<td>: <?php echo $u->ruangan ?></td>
+					</tr>
+					<?php } ?>
+			</table>
 	        	</div>			
              <div class="col-md-6 form-group">                 
 					<?php
@@ -68,22 +90,31 @@
 				  <?php } ?>
             </div>
 			<div class="col-md-12 form-group">
-		
-				<?php
-					$no = 1;
-					foreach($data as $u){
-				?>
-					<textarea  type="text" class="form-control" rows="5" placeholder="<?php echo $u->materi ?>.<?php echo $u->materitambahan ?>" readonly></textarea>
-					<input class="form-control" type="hidden" value="<?php echo $u->materi ?>.<?php echo $u->materitambahan ?>" id="materiajar" name="materiajar" readonly>
-				<?php } ?>
-        	</div>
-			<input class="form-control" type="hidden" value="<?php echo $this->session->userdata('nama_user')?>" id="namauser" name="namauser" readonly>
-			 <div class="col-md-6 form-group">
-			<label class="radio-inline"><input type="radio"  value="sesuai" name="status">Sesuai</label>
-			<label class="radio-inline"><input type="radio"  value="tidak sesuai" name="status">Tidak Sesuai</label>
+        	<table class="table table-bordered">
+			<tr>
+				<th class="col-md-1 form-group">Pertemuan</th>
+				<th>Materi</th>
+			</tr>
+			<?php
+			$no = 1;
+			foreach($kode_matkul as $i){
+			?>
+			<tr>
+				<td>
+				<input type="checkbox" name="materi" id="materi" value="<?php echo $i->materi ?>">
+				<?php echo $i->pertemuan ?>	</td>
+				<td><?php echo $i->materi ?></td>	
+			</tr>
+			<?php } ?>
+			<tr>
+				<td><input type="checkbox" name="materi" id="materi" value="Dan lain-lain"></td>
+				<td>Dan lain-lain</td>
+			</tr>
+			</table>
 			</div>
+			<input class="form-control" type="hidden" value="<?php echo $this->session->userdata('nama_user')?>" id="namauser" name="namauser" readonly>
 			<div class="col-md-12 form-group">
-	        		<textarea name="ket" id="ket" type="text" class="form-control" rows="5" placeholder="Keterangan"></textarea>
+	        		<textarea name="materitambahan" class="form-control" rows="4" placeholder="Materi Tambahan" ></textarea>
         	</div>
         	<div class="col-md-12 form-group">
         			<button class="btn btn-primary pull-right btn-flat" type="submit">Submit</button>
