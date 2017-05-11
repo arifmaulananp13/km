@@ -14,30 +14,30 @@ class Baprps extends CI_Controller {
 
 	public function input_bap(){
 		if ($this->session->userdata('level') == 'Dosen Pengajar'){
-		$data['title'] = "Input BAP";
-		$data['active_1'] = "active";
-		$dosen = $this->session->userdata('nama_user');
-		$where = array('dosen' => $dosen);
-		$data['data'] = $this->m_inputbap->verif_data($where,'input_jadwal')->result();
-		view('rpsbap/input_bap',$data);
+			$data['title'] = "Input BAP";
+			$data['active_1'] = "active";
+			$dosen = $this->session->userdata('nama_user');
+			$where = array('dosen' => $dosen);
+			$data['data'] = $this->m_inputbap->verif_data($where,'input_jadwal')->result();
+			view('rpsbap/input_bap',$data);
 		}
 		elseif($this->session->userdata('level') == 'Mahasiswa'){
-		redirect('baprps/verif_bap');
+			redirect('baprps/verif_bap');
 		}
 		elseif($this->session->userdata('level') == 'Belum Aktif'){
-		redirect('baprps/forum');
+			redirect('baprps/forum');
 		}		
 		else{
-		$data['title'] = "Input BAP";
-		$data['active_1'] = "active";
-		$dosen = $this->session->userdata('nama_user');
-		$where = array('dosen' => $dosen);
-		$data['data'] = $this->m_inputbap->verif_data($where,'input_jadwal')->result();
-		view('rpsbap/input_bap',$data);
+			$data['title'] = "Input BAP";
+			$data['active_1'] = "active";
+			$dosen = $this->session->userdata('nama_user');
+			$where = array('dosen' => $dosen);
+			$data['data'] = $this->m_inputbap->verif_data($where,'input_jadwal')->result();
+			view('rpsbap/input_bap',$data);
 		}
-		}
+	}
 	
-		public function input_bap2($id,$matkul){
+	public function input_bap2($id,$matkul){
 		$data['title'] = "Input BAP";
 		$where = array('id_jadwal' => $id);
 		$data['data'] = $this->m_inputbap->verif_data($where,'input_jadwal')->result();
@@ -70,191 +70,191 @@ class Baprps extends CI_Controller {
 			);
 
 		if(isset($_POST['materi'])){
-		$this->m_inputbap->input_data($data,'input_bap');
-		$this->session->set_flashdata('category_success', 'Submit Success');
-		redirect('baprps/input_bap');
+			$this->m_inputbap->input_data($data,'input_bap');
+			$this->session->set_flashdata('category_success', 'Submit Success');
+			redirect('baprps/input_bap');
 		}else{
-		$this->session->set_flashdata('category_error', 'Data Tidak Boleh Kosong!');
+			$this->session->set_flashdata('category_error', 'Data Tidak Boleh Kosong!');
 			redirect($_SERVER['HTTP_REFERER']);
 
 		}
-    }
+	}
 
 
 	public function verif_bap(){
 		if ($this->session->userdata('level') == 'Mahasiswa'){
-		$data['title'] = "Verifikasi BAP";
-		$data['active_2'] = "active";
-		$this->load->model('m_inputbap');
-		$data['data']=$this->m_inputbap->tampil_data();
-		view('rpsbap/verif_bap',$data);
+			$data['title'] = "Verifikasi BAP";
+			$data['active_2'] = "active";
+			$this->load->model('m_inputbap');
+			$data['data']=$this->m_inputbap->tampil_data();
+			view('rpsbap/verif_bap',$data);
 		}
 		elseif ($this->session->userdata('level') == 'Ketua Kelompok Keahlian'){
-		$data['title'] = "Verifikasi BAP";
-		$data['active_2'] = "active";
-		$this->load->model('m_inputbap');
-		$data['data']=$this->m_inputbap->tampil_data();
-		view('rpsbap/verif_bap',$data);
+			$data['title'] = "Verifikasi BAP";
+			$data['active_2'] = "active";
+			$this->load->model('m_inputbap');
+			$data['data']=$this->m_inputbap->tampil_data();
+			view('rpsbap/verif_bap',$data);
 		}
 		elseif($this->session->userdata('level') == 'Sekretaris Kaprodi'){
-		redirect('baprps/forum');
+			redirect('baprps/forum');
 		}				
 		elseif($this->session->userdata('level') == 'Dosen Pengajar'){
-		redirect('baprps/input_bap');
+			redirect('baprps/input_bap');
 		}
 		elseif($this->session->userdata('level') == 'Belum Aktif'){
-		redirect('baprps/forum');
+			redirect('baprps/forum');
 		}
 		else{
-		redirect('baprps/grafik');	
+			redirect('baprps/grafik');	
 		}
 	}
 	
 	public function download($fileName = NULL) {
-	$this->load->helper('download');
-	if ($fileName) {
-    $file = realpath ( "upload/rps" ) . "\\" . $fileName;
+		$this->load->helper('download');
+		if ($fileName) {
+			$file = realpath ( "upload/rps" ) . "\\" . $fileName;
     // check file exists    
-    if (file_exists ( $file )) {
+			if (file_exists ( $file )) {
      // get file content
-     $data = file_get_contents ( $file );
+				$data = file_get_contents ( $file );
      //force download
-     force_download( $fileName, $data );
-    } else {
+				force_download( $fileName, $data );
+			} else {
      // Redirect to base url
-     redirect ( base_url () );
-    }
-	}
+				redirect ( base_url () );
+			}
+		}
 	}
 	
-     
+	
 
 	public function grafik(){
 		if ($this->session->userdata('level') == 'Dosen Koordinator'){
-		$data['title'] = "Table";
-		$data['active_5'] = "active";
-		$data['dosen'] = $this->combobox_model->getDosen();
-		$data['matkul'] = $this->combobox_model->getMatkulAll();
-		$data['kelas'] = $this->combobox_model->getKelasAll();
-		view('rpsbap/grafik',$data);
+			$data['title'] = "Table";
+			$data['active_5'] = "active";
+			$data['dosen'] = $this->combobox_model->getDosen();
+			$data['matkul'] = $this->combobox_model->getMatkulAll();
+			$data['kelas'] = $this->combobox_model->getKelasAll();
+			view('rpsbap/grafik',$data);
 		}		
 		elseif($this->session->userdata('level') == 'Mahasiswa'){
-		redirect('baprps/verif_bap');
+			redirect('baprps/verif_bap');
 		}
 		elseif($this->session->userdata('level') == 'Dosen Pengajar'){
-		redirect('baprps/input_bap');
+			redirect('baprps/input_bap');
 		}
 		elseif($this->session->userdata('level') == 'Sekretaris Kaprodi'){
-		redirect('baprps/forum');
+			redirect('baprps/forum');
 		}
 		elseif($this->session->userdata('level') == 'Belum Aktif'){
-		redirect('baprps/forum');
+			redirect('baprps/forum');
 		}
 		else{
-		$data['title'] = "Table";
-		$data['active_5'] = "active";
-		$data['dosen'] = $this->combobox_model->getDosen();
-		$data['matkul'] = $this->combobox_model->getMatkulAll();
-		$data['kelas'] = $this->combobox_model->getKelasAll();
-		view('rpsbap/grafik',$data);
+			$data['title'] = "Table";
+			$data['active_5'] = "active";
+			$data['dosen'] = $this->combobox_model->getDosen();
+			$data['matkul'] = $this->combobox_model->getMatkulAll();
+			$data['kelas'] = $this->combobox_model->getKelasAll();
+			view('rpsbap/grafik',$data);
 		}
-		}
+	}
 
 	public function aksi_grafik(){
-	$data['title'] = "Table";
-	$dosen	= $this->input->post('dosen');
-	$matkul	= $this->input->post('matkul');
-	$kelas	= $this->input->post('kelas');	
-	$data['data'] = $this->m_login->sesuai($dosen, $matkul, $kelas);
-	$dosen1		= $this->input->post('dosen1');
-	$matkul1	= $this->input->post('matkul1');
-	$kelas1		= $this->input->post('kelas1');
-	$data['data1'] = $this->m_login->sesuai1($dosen1, $matkul1, $kelas1);
-	view('rpsbap/tabel',$data);
+		$data['title'] = "Table";
+		$dosen	= $this->input->post('dosen');
+		$matkul	= $this->input->post('matkul');
+		$kelas	= $this->input->post('kelas');	
+		$data['data'] = $this->m_login->sesuai($dosen, $matkul, $kelas);
+		$dosen1		= $this->input->post('dosen1');
+		$matkul1	= $this->input->post('matkul1');
+		$kelas1		= $this->input->post('kelas1');
+		$data['data1'] = $this->m_login->sesuai1($dosen1, $matkul1, $kelas1);
+		view('rpsbap/tabel',$data);
 	}
 
 	public function satuobjek(){
 		if ($this->session->userdata('level') == 'Dosen Koordinator'){
-		$data['title'] = "Table";
-		$data['active_5'] = "active";
-		$data['dosen'] = $this->combobox_model->getDosen();
-		$data['matkul'] = $this->combobox_model->getMatkulAll();
-		$data['kelas'] = $this->combobox_model->getKelasAll();
-		view('rpsbap/1objek',$data);
+			$data['title'] = "Table";
+			$data['active_5'] = "active";
+			$data['dosen'] = $this->combobox_model->getDosen();
+			$data['matkul'] = $this->combobox_model->getMatkulAll();
+			$data['kelas'] = $this->combobox_model->getKelasAll();
+			view('rpsbap/1objek',$data);
 		}		
 		elseif($this->session->userdata('level') == 'Mahasiswa'){
-		redirect('baprps/verif_bap');
+			redirect('baprps/verif_bap');
 		}
 		elseif($this->session->userdata('level') == 'Dosen Pengajar'){
-		redirect('baprps/input_bap');
+			redirect('baprps/input_bap');
 		}
 		elseif($this->session->userdata('level') == 'Sekretaris Kaprodi'){
-		redirect('baprps/forum');
+			redirect('baprps/forum');
 		}
 		elseif($this->session->userdata('level') == 'Belum Aktif'){
-		redirect('baprps/forum');
+			redirect('baprps/forum');
 		}
 		else{
-		$data['title'] = "Table";
-		$data['active_5'] = "active";
-		$data['dosen'] = $this->combobox_model->getDosen();
-		$data['matkul'] = $this->combobox_model->getMatkulAll();
-		$data['kelas'] = $this->combobox_model->getKelasAll();
-		view('rpsbap/1objek',$data);
+			$data['title'] = "Table";
+			$data['active_5'] = "active";
+			$data['dosen'] = $this->combobox_model->getDosen();
+			$data['matkul'] = $this->combobox_model->getMatkulAll();
+			$data['kelas'] = $this->combobox_model->getKelasAll();
+			view('rpsbap/1objek',$data);
 		}
-		}
-		
-	public function aksi_satuobjek(){
-	$data['title'] = "Table";
-	$dosen	= $this->input->post('dosen');
-	$matkul	= $this->input->post('matkul');
-	$kelas	= $this->input->post('kelas');	
-	$data['data'] = $this->m_login->sesuai($dosen, $matkul, $kelas);
-	view('rpsbap/1objek2',$data);
 	}
-		
+	
+	public function aksi_satuobjek(){
+		$data['title'] = "Table";
+		$dosen	= $this->input->post('dosen');
+		$matkul	= $this->input->post('matkul');
+		$kelas	= $this->input->post('kelas');	
+		$data['data'] = $this->m_login->sesuai($dosen, $matkul, $kelas);
+		view('rpsbap/1objek2',$data);
+	}
+	
 	public function perpertemuan(){
 		if ($this->session->userdata('level') == 'Dosen Koordinator'){
-		$data['title'] = "Table";
-		$data['active_5'] = "active";
-		$data['pertemuan'] = $this->combobox_model->getPertemuanAll();
-		view('rpsbap/per_pertemuan',$data);
+			$data['title'] = "Table";
+			$data['active_5'] = "active";
+			$data['pertemuan'] = $this->combobox_model->getPertemuanAll();
+			view('rpsbap/per_pertemuan',$data);
 		}		
 		elseif($this->session->userdata('level') == 'Mahasiswa'){
-		redirect('baprps/verif_bap');
+			redirect('baprps/verif_bap');
 		}
 		elseif($this->session->userdata('level') == 'Dosen Pengajar'){
-		redirect('baprps/input_bap');
+			redirect('baprps/input_bap');
 		}
 		elseif($this->session->userdata('level') == 'Sekretaris Kaprodi'){
-		redirect('baprps/forum');
+			redirect('baprps/forum');
 		}
 		elseif($this->session->userdata('level') == 'Belum Aktif'){
-		redirect('baprps/forum');
+			redirect('baprps/forum');
 		}
 		else{
-		$data['title'] = "Table";
-		$data['active_5'] = "active";
-		$data['pertemuan'] = $this->combobox_model->getPertemuanAll();
-		view('rpsbap/per_pertemuan',$data);
+			$data['title'] = "Table";
+			$data['active_5'] = "active";
+			$data['pertemuan'] = $this->combobox_model->getPertemuanAll();
+			view('rpsbap/per_pertemuan',$data);
 		}
-		}
-		
+	}
+	
 	public function aksi_perpertemuan(){
-	$data['title'] = "Table";
-	$pertemuan	= $this->input->post('pertemuan');
-	$data['data'] = $this->m_login->sesuai2($pertemuan);
-	$data['matkul'] = $this->combobox_model->getMatkulAll();
-	view('rpsbap/per_pertemuan2',$data);
+		$data['title'] = "Table";
+		$pertemuan	= $this->input->post('pertemuan');
+		$data['data'] = $this->m_login->sesuai2($pertemuan);
+		$data['matkul'] = $this->combobox_model->getMatkulAll();
+		view('rpsbap/per_pertemuan2',$data);
 	}
 	
 	public function filter(){
-	$data['title'] = "Table";
-	$pertemuan	= $this->input->post('pertemuan');
-	$matkul	= $this->input->post('matkul');
-	$data['data'] = $this->m_login->sesuai3($pertemuan,$matkul);
-	$data['matkul'] = $this->combobox_model->getMatkulAll();
-	view('rpsbap/per_pertemuan3',$data);
+		$data['title'] = "Table";
+		$pertemuan	= $this->input->post('pertemuan');
+		$matkul	= $this->input->post('matkul');
+		$data['data'] = $this->m_login->sesuai3($pertemuan,$matkul);
+		$data['matkul'] = $this->combobox_model->getMatkulAll();
+		view('rpsbap/per_pertemuan3',$data);
 	}
 	
 	public function detailperpertemuan($id){
@@ -264,45 +264,45 @@ class Baprps extends CI_Controller {
 		view('rpsbap/per_pertemuan_detail',$data);
 	}	
 	
-		
+	
 
 
-		
+	
 
 	public function jadwal(){
 		if ($this->session->userdata('level') == 'Sekretaris Kaprodi'){
-		$data['title'] = "Input Jadwal Dosen";
-		$data['active_6'] = "active";
-		$data['dosen'] = $this->combobox_model->getDosen();
-		$data['matkul'] = $this->combobox_model->getMatkulAll();
-		$data['kelas'] = $this->combobox_model->getKelasAll();
-		$data['shift'] = $this->combobox_model->getShiftAll();		
-		$data['hari'] = $this->combobox_model->getHariAll();		
-		$data['ruangan'] = $this->combobox_model->getRuanganAll();
-		view('rpsbap/input_jadwal',$data);
+			$data['title'] = "Input Jadwal Dosen";
+			$data['active_6'] = "active";
+			$data['dosen'] = $this->combobox_model->getDosen();
+			$data['matkul'] = $this->combobox_model->getMatkulAll();
+			$data['kelas'] = $this->combobox_model->getKelasAll();
+			$data['shift'] = $this->combobox_model->getShiftAll();		
+			$data['hari'] = $this->combobox_model->getHariAll();		
+			$data['ruangan'] = $this->combobox_model->getRuanganAll();
+			view('rpsbap/input_jadwal',$data);
 		}
 		elseif ($this->session->userdata('level') == 'Ketua Kelompok Keahlian'){
-		$data['title'] = "Input Jadwal Dosen";
-		$data['active_6'] = "active";
-		$data['dosen'] = $this->combobox_model->getDosen();
-		$data['matkul'] = $this->combobox_model->getMatkulAll();
-		$data['kelas'] = $this->combobox_model->getKelasAll();
-		$data['shift'] = $this->combobox_model->getShiftAll();		
-		$data['hari'] = $this->combobox_model->getHariAll();
-		$data['ruangan'] = $this->combobox_model->getRuanganAll();
-		view('rpsbap/input_jadwal',$data);
+			$data['title'] = "Input Jadwal Dosen";
+			$data['active_6'] = "active";
+			$data['dosen'] = $this->combobox_model->getDosen();
+			$data['matkul'] = $this->combobox_model->getMatkulAll();
+			$data['kelas'] = $this->combobox_model->getKelasAll();
+			$data['shift'] = $this->combobox_model->getShiftAll();		
+			$data['hari'] = $this->combobox_model->getHariAll();
+			$data['ruangan'] = $this->combobox_model->getRuanganAll();
+			view('rpsbap/input_jadwal',$data);
 		}
 		elseif($this->session->userdata('level') == 'Mahasiswa'){
-		redirect('baprps/verif_bap');
+			redirect('baprps/verif_bap');
 		}
 		elseif($this->session->userdata('level') == 'Dosen Pengajar'){
-		redirect('baprps/input_bap');
+			redirect('baprps/input_bap');
 		}
 		elseif($this->session->userdata('level') == 'Belum Aktif'){
-		redirect('baprps/forum');
+			redirect('baprps/forum');
 		}
 		else{
-		redirect('baprps/grafik');	
+			redirect('baprps/grafik');	
 		}
 	}
 	
@@ -325,14 +325,14 @@ class Baprps extends CI_Controller {
 			'kode_matkul'=> $kode_matkul
 			);
 		if(isset($_POST['dosen']) && isset($_POST['matkul']) && isset($_POST['kelas']) && isset($_POST['hari']) && isset($_POST['shift']) && isset($_POST['ruangan'])){	
-		$this->m_inputbap->input_data($data,'input_jadwal');
-		$this->session->set_flashdata('category_success', 'Submit Success');
-		redirect('baprps/jadwal');
+			$this->m_inputbap->input_data($data,'input_jadwal');
+			$this->session->set_flashdata('category_success', 'Submit Success');
+			redirect('baprps/jadwal');
 		}else{
-		$this->session->set_flashdata('category_error', 'Data Tidak Boleh Kosong!');
+			$this->session->set_flashdata('category_error', 'Data Tidak Boleh Kosong!');
 			redirect($_SERVER['HTTP_REFERER']);
 		}
-    }
+	}
 	
 	
 	public function verif2($id){
@@ -370,11 +370,11 @@ class Baprps extends CI_Controller {
 			'pertemuan' => $pertemuan
 			);
 		if(isset($_POST['status'])&& isset($_POST['materiajar'])){
-		$this->m_inputbap->input_data($data,'verif_bap');
-		$this->session->set_flashdata('category_success', 'Submit Success');
-		redirect('baprps/verif_bap');
+			$this->m_inputbap->input_data($data,'verif_bap');
+			$this->session->set_flashdata('category_success', 'Submit Success');
+			redirect('baprps/verif_bap');
 		}else{
-		$this->session->set_flashdata('category_error', 'Data Tidak Boleh Kosong!');
+			$this->session->set_flashdata('category_error', 'Data Tidak Boleh Kosong!');
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 	}
@@ -382,13 +382,13 @@ class Baprps extends CI_Controller {
 
 	public function forum(){
 		if ($this->session->userdata('level') == 'Mahasiswa'){
-		redirect('baprps/verif_bap');
+			redirect('baprps/verif_bap');
 		}else{		
-		$data['title'] = "Forum";
-		$data['active_7'] = "active";
-		$data['data']=$this->m_inputbap->post();		
-		view('forum/forum',$data);
-	}
+			$data['title'] = "Forum";
+			$data['active_7'] = "active";
+			$data['data']=$this->m_inputbap->post();		
+			view('forum/forum',$data);
+		}
 	}
 	public function newpost(){
 		$data['title'] = "Forum";
@@ -435,27 +435,27 @@ class Baprps extends CI_Controller {
 			'profile_picture' => $profile_picture,
 			);
 		$this->m_inputbap->input_comment($where,'table_comment');
-			redirect($_SERVER['HTTP_REFERER']);
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 	
 	public function edit(){
 		if ($this->session->userdata('level') == 'Sekretaris Kaprodi'){
-		$data['title'] = "User Management";
-		$data['active_12'] = "active";
-		$data['data']=$this->m_inputbap->user();
-		view('kkpage',$data);
+			$data['title'] = "User Management";
+			$data['active_12'] = "active";
+			$data['data']=$this->m_inputbap->user();
+			view('kkpage',$data);
 		}
 		elseif($this->session->userdata('level') == 'Mahasiswa'){
-		redirect('baprps/verif_bap');
+			redirect('baprps/verif_bap');
 		}
 		elseif($this->session->userdata('level') == 'Dosen Pengajar'){
-		redirect('baprps/input_bap');
+			redirect('baprps/input_bap');
 		}
 		elseif($this->session->userdata('level') == 'Belum Aktif'){
-		redirect('baprps/forum');
+			redirect('baprps/forum');
 		}
 		else{
-		redirect('baprps/grafik');	
+			redirect('baprps/grafik');	
 		}
 	}
 	
@@ -473,15 +473,15 @@ class Baprps extends CI_Controller {
 		$where = array('id_user' => $id);
 		$data = array('level' => $level);
 
-	$this->m_inputbap->update_data($where, $data,'user');
-	redirect('baprps/edit');
+		$this->m_inputbap->update_data($where, $data,'user');
+		redirect('baprps/edit');
 	}
 
 	public function chart(){
 		$data['title'] = "Grafik";
 		$data['active_13'] = "active";
 		view('rpsbap/chart',$data);
-		}	
+	}	
 	
-		
+	
 }
