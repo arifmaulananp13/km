@@ -47,13 +47,18 @@ class Baprps extends CI_Controller {
 	}
 
 	public function input_bap_post(){
+
+
+		if(isset($_POST['tanggal']) && isset($_POST['pertemuan']) && isset($_POST['materitambahan'])){
+		$checked_arr = $_POST['materi'];
+		$count = count($checked_arr);
 		$dosen = $this->input->post('dosen');
 		$matkul = $this->input->post('matkul');
 		$tanggal = $this->input->post('tanggal');
 		$shift = $this->input->post('shift');
 		$ruangan = $this->input->post('ruangan');
 		$kelas = $this->input->post('kelas');		
-		$materi = $this->input->post('materi');
+		$checkbox = implode(',', $_POST['materi']);
 		$materitambahan = $this->input->post('materitambahan');
 		$pertemuan = $this->input->post('pertemuan');
 		$kode_matkul = $this->input->post('kode_matkul');
@@ -65,13 +70,12 @@ class Baprps extends CI_Controller {
 			'shift' => $shift,
 			'ruangan' => $ruangan,
 			'kelas' => $kelas,
-			'materi' => $materi,
+			'materi' => $checkbox,
 			'materitambahan' => $materitambahan,
 			'pertemuan' => $pertemuan,
-			'kode_matkul' => $kode_matkul
+			'kode_matkul' => $kode_matkul,
+			'totalmateri' => $count
 			);
-
-		if(isset($_POST['tanggal']) && isset($_POST['pertemuan']) && isset($_POST['materitambahan'])){
 		$this->m_inputbap->input_data($data,'input_bap');
 		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('baprps/input_bap');

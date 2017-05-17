@@ -109,7 +109,7 @@
 			?>
 			<tr>
 				<td>
-				<input type="checkbox" name="materi" id="materi" value="<?php echo $i->materi ?>">
+				<input type="checkbox" name="materi[]" value="<?php echo $i->materi ?>">
 				<?php echo $i->pertemuan ?>	</td>
 				<td><?php echo $i->materi ?></td>	
 			</tr>
