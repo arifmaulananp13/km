@@ -115,7 +115,7 @@
 			</tr>
 			<?php } ?>
 			<tr>
-				<td><input type="checkbox" name="materi" id="materi" value="Dan lain-lain"></td>
+				<td><input type="checkbox" name="materi[]" value="Dan lain-lain"></td>
 				<td>Dan lain-lain</td>
 			</tr>
 			</table>

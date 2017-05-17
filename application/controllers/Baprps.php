@@ -47,8 +47,6 @@ class Baprps extends CI_Controller {
 	}
 
 	public function input_bap_post(){
-
-
 		if(isset($_POST['tanggal']) && isset($_POST['pertemuan']) && isset($_POST['materitambahan'])){
 		$checked_arr = $_POST['materi'];
 		$count = count($checked_arr);
@@ -247,20 +245,20 @@ class Baprps extends CI_Controller {
 		}
 		
 	public function aksi_perpertemuan(){
-	$data['title'] = "Table";
-	$pertemuan	= $this->input->post('pertemuan');
-	$data['data'] = $this->m_login->sesuai2($pertemuan);
-	$data['matkul'] = $this->combobox_model->getMatkulAll();
-	view('rpsbap/per_pertemuan2',$data);
+		$data['title'] = "Table";
+		$pertemuan	= $this->input->post('pertemuan');
+		$data['data'] = $this->m_login->sesuai2($pertemuan);
+		$data['matkul'] = $this->combobox_model->getMatkulAll();
+		view('rpsbap/per_pertemuan2',$data);
 	}
 	
 	public function filter(){
-	$data['title'] = "Table";
-	$pertemuan	= $this->input->post('pertemuan');
-	$matkul	= $this->input->post('matkul');
-	$data['data'] = $this->m_login->sesuai3($pertemuan,$matkul);
-	$data['matkul'] = $this->combobox_model->getMatkulAll();
-	view('rpsbap/per_pertemuan3',$data);
+		$data['title'] = "Table";
+		$pertemuan	= $this->input->post('pertemuan');
+		$matkul	= $this->input->post('matkul');
+		$data['data'] = $this->m_login->sesuai3($pertemuan,$matkul);
+		$data['matkul'] = $this->combobox_model->getMatkulAll();
+		view('rpsbap/per_pertemuan3',$data);
 	}
 	
 	public function detailperpertemuan($id){
@@ -351,13 +349,16 @@ class Baprps extends CI_Controller {
 	}
 	
 	public function verif_bap_post(){
+		if(isset($_POST['materi'])){
+		$checked_arr = $_POST['materi'];
+		$count = count($checked_arr);
 		$dosen = $this->input->post('dosen');
 		$matkul = $this->input->post('matkul');
 		$tanggal = $this->input->post('tanggal');
 		$kelas = $this->input->post('kelas');		
 		$shift = $this->input->post('shift');
 		$ruangan = $this->input->post('ruangan');
-		$materi = $this->input->post('materi');
+		$checkbox = implode(',', $_POST['materi']);
 		$materitambahan = $this->input->post ('materitambahan');
 		$namauser = $this->input->post ('namauser');
 		$pertemuan = $this->input->post ('pertemuan');
@@ -369,12 +370,11 @@ class Baprps extends CI_Controller {
 			'kelas' => $kelas,	
 			'shift' => $shift,
 			'ruangan' => $ruangan,
-			'materi' => $materi,			
+			'materi' => $checkbox,			
 			'materitambahan' => $materitambahan,
 			'namauser' => $namauser,
 			'pertemuan' => $pertemuan
 			);
-		if(isset($_POST['materi'])){
 		$this->m_inputbap->input_data($data,'verif_bap');
 		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('baprps/verif_bap');
