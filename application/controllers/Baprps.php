@@ -349,7 +349,7 @@ class Baprps extends CI_Controller {
 	}
 	
 	public function verif_bap_post(){
-		if(isset($_POST['materi'])){
+		if(isset($_POST['submit'])){
 		$checked_arr = $_POST['materi'];
 		$count = count($checked_arr);
 		$dosen = $this->input->post('dosen');
@@ -373,14 +373,13 @@ class Baprps extends CI_Controller {
 			'materi' => $checkbox,			
 			'materitambahan' => $materitambahan,
 			'namauser' => $namauser,
-			'pertemuan' => $pertemuan
+			'pertemuan' => $pertemuan,
+			'totalmateri' => $count
 			);
 		$this->m_inputbap->input_data($data,'verif_bap');
 		$this->session->set_flashdata('category_success', 'Submit Success');
 		redirect('baprps/verif_bap');
-		}else{
-		$this->session->set_flashdata('category_error', 'Data Tidak Boleh Kosong!');
-			redirect($_SERVER['HTTP_REFERER']);
+
 		}
 	}
 	

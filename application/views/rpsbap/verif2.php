@@ -101,13 +101,13 @@
 			?>
 			<tr>
 				<td>
-				<input type="checkbox" name="materi[]" value="<?php echo $i->materi ?>">
+				<input type="checkbox" name="materi[]" id="materi" value="<?php echo $i->materi ?>" >
 				<?php echo $i->pertemuan ?>	</td>
 				<td><?php echo $i->materi ?></td>	
 			</tr>
 			<?php } ?>
 			<tr>
-				<td><input type="checkbox" name="materi[]" value="Dan lain-lain"></td>
+				<td><input type="checkbox" name="materi[]" id="materi" value="Dan lain-lain"></td>
 				<td>Dan lain-lain</td>
 			</tr>
 			</table>
@@ -117,7 +117,7 @@
 	        		<textarea name="materitambahan" class="form-control" rows="4" placeholder="Materi Tambahan" ></textarea>
         	</div>
         	<div class="col-md-12 form-group">
-        			<button class="btn btn-primary pull-right btn-flat" type="submit">Submit</button>
+        			<button onclick="myFunction()" class="btn btn-primary pull-right btn-flat" type="submit" name="submit">Submit</button>
         	</div>
         	</div>
         </form>
@@ -126,5 +126,9 @@
 		</div>
 		<div class="content-wrapper">
 		</div>
-
+<script>
+function myFunction() {
+    document.getElementById("materi").required = false;
+}
+</script>
 

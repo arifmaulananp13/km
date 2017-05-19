@@ -8,6 +8,7 @@
 		  <div class="col-md-12 with-padding">
         <form action="<?php echo base_url(). 'baprps/input_bap_post'; ?>" method="post" class="box box-primary">
         	<div class="box-header with-border">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         		Input BAP
 	<?php if ($this->session->flashdata('category_error')) { ?>
 					<div class="alert alert-danger alert-dismissible">
@@ -109,13 +110,13 @@
 			?>
 			<tr>
 				<td>
-				<input type="checkbox" name="materi[]" value="<?php echo $i->materi ?>">
+				<input type="checkbox" name="materi[]" class="silabus" value="<?php echo $i->materi ?>">
 				<?php echo $i->pertemuan ?>	</td>
 				<td><?php echo $i->materi ?></td>	
 			</tr>
 			<?php } ?>
 			<tr>
-				<td><input type="checkbox" name="materi[]" value="Dan lain-lain"></td>
+				<td><input type="checkbox" name="materi[]" id="dll" value="Dan lain-lain"></td>
 				<td>Dan lain-lain</td>
 			</tr>
 			</table>
@@ -132,4 +133,15 @@
         </section>
 		<div class="content-wrapper">
 		</div>
- 
+
+<script>		
+$(function(){
+  $('#dll').on('click',function(){
+    if($(this).is(':checked') === true){
+       $('.silabus').prop('disabled','disabled');
+    }else{      
+      $('.silabus').prop("disabled", false);
+    }
+  });
+});
+</script>
