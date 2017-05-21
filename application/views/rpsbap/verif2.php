@@ -101,13 +101,13 @@
 			?>
 			<tr>
 				<td>
-				<input type="checkbox" name="materi[]" id="materi" value="<?php echo $i->materi ?>" >
+				<input type="checkbox" name="materi[]" class="silabus" value="<?php echo $i->materi ?>" >
 				<?php echo $i->pertemuan ?>	</td>
 				<td><?php echo $i->materi ?></td>	
 			</tr>
 			<?php } ?>
 			<tr>
-				<td><input type="checkbox" name="materi[]" id="materi" value="Dan lain-lain"></td>
+				<td><input type="checkbox" name="materi[]" id="dll" value="Dan lain-lain"></td>
 				<td>Dan lain-lain</td>
 			</tr>
 			</table>
@@ -126,9 +126,16 @@
 		</div>
 		<div class="content-wrapper">
 		</div>
-<script>
-function myFunction() {
-    document.getElementById("materi").required = false;
-}
+
+<script>		
+$(function(){
+  $('#dll').on('click',function(){
+    if($(this).is(':checked') === true){
+       $('.silabus').prop('disabled','disabled');
+    }else{      
+      $('.silabus').prop("disabled", false);
+    }
+  });
+});
 </script>
 
