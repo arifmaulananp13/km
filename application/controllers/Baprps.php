@@ -364,6 +364,7 @@ class Baprps extends CI_Controller {
 		$materitambahan = $this->input->post ('materitambahan');
 		$namauser = $this->input->post ('namauser');
 		$pertemuan = $this->input->post ('pertemuan');
+		$totalmateri_d = $this->input->post ('totalmateri_d');
 		
 		$data = array(
 			'dosen' => $dosen,
@@ -377,7 +378,8 @@ class Baprps extends CI_Controller {
 			'namauser' => $namauser,
 			'pertemuan' => $pertemuan,
 			'totalmateri' => $count,
-			'totalrps' => $count2
+			'totalrps' => $count2,
+			'totalmateri_d' => $totalmateri_d
 			);
 		$this->m_inputbap->input_data($data,'verif_bap');
 		$this->session->set_flashdata('category_success', 'Submit Success');

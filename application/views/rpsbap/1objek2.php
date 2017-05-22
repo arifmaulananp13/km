@@ -31,26 +31,34 @@
 			</table>
 
 			
-        	<table class ="table table-striped-bordered" >
+        	<table class ="table table-bordered" >
 			<tr>
-				<th class="col-md-1 text-center">Pertemuan</th>
-				<th class="col-md-4 text-center">Materi</th>
-				<th class="col-md-2 text-center">Status</th>
-				<th class="col-md-2 text-center">Validator</th>
-				<th class="col-md-3 text-center">Keterangan</th>
+				<th class="col-md-1">Pertemuan</th>
+				<th class="col-md-4">Materi</th>
+				<th class="col-md-2">Status</th>
+				<th class="col-md-2">Validator</th>
+				<th class="col-md-3">Materi Tambahan</th>
 			</tr>
-
-			
-
 			<?php
 			foreach($data as $u){
 			?>
 			<tr>
 				<td class="text-center"><?php echo $u->pertemuan ?></td>
-				<td><?php echo $u->materiajar ?></td>
-				<td><?php echo $u->status ?></td>
+				<td><?php echo $u->materi ?></td>
+				<td>
+				<?php  if($u->totalmateri_d == $u->totalrps) { 
+							if($u->totalmateri_d == $u->totalmateri){ ?>
+				<p>Sesuai</p>
+				<?php  }else{ ?>
+				<p>Tidak Sesuai</p>
+				<?php } ?>
+				<?php  }else{ ?>
+				<p>Tidak Sesuai</p>
+				<?php } ?>
+				
+				</td>
 				<td><?php echo $u->namauser ?></td>
-				<td><?php echo $u->ket ?></td>
+				<td><?php echo $u->materitambahan ?></td>
 			<?php } ?>
 			</tr>
 			</table>

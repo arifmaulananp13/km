@@ -67,7 +67,15 @@
 				<td><?php echo $u->matkul ?></td>
 				<td><?php echo $u->kelas ?></td>
 				<td><?php echo $u->dosen ?></td>
-				<td><?php echo $u->status ?></td>
+				<td>				<?php  if($u->totalmateri_d == $u->totalrps) { 
+							if($u->totalmateri_d == $u->totalmateri){ ?>
+				<p>Sesuai</p>
+				<?php  }else{ ?>
+				<p>Tidak Sesuai</p>
+				<?php } ?>
+				<?php  }else{ ?>
+				<p>Tidak Sesuai</p>
+				<?php } ?></td>
 				<td><a href="<?php echo base_url('baprps/detailperpertemuan/'.$u->id_verif); ?>" action="post" target="_blank" type="submit">Detail</a></td>
 			<?php } ?>
 			</tr>

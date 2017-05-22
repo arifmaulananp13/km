@@ -63,6 +63,7 @@
 				  <input class="form-control" type="hidden" value="<?php echo $u->shift ?>" id="shift" name="shift" readonly>
 				  <input class="form-control" type="hidden" value="<?php echo $u->ruangan ?>" id="ruangan" name="ruangan" readonly>
 				  <input class="form-control" type="hidden" value="<?php echo $u->pertemuan ?>" id="pertemuan" name="pertemuan" readonly>
+				  <input class="form-control" type="hidden" value="<?php echo $u->totalmateri ?>"  name="totalmateri_d" readonly>
 				  <?php } ?>
             </div>
              <div class="col-md-6 form-group">   
