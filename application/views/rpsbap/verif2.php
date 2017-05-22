@@ -103,8 +103,13 @@
 				<td>
 				<input type="checkbox" name="materi[]" class="silabus" value="<?php echo $i->materi ?>" >
 				<?php echo $i->pertemuan ?>	</td>
-				<td><?php echo $i->materi ?></td>	
+				<td><?php echo $i->materi ?></td>
 			</tr>
+				<?php
+				$test[] = $i->pertemuan;
+				$count = count($test);
+				?>
+				<input class="form-control" type="hidden" value="<?php echo $count ?>"  name="totalrps[]" readonly>				
 			<?php } ?>
 			<tr>
 				<td><input type="checkbox" name="materi[]" id="dll" value="Dan lain-lain"></td>
@@ -112,6 +117,7 @@
 			</tr>
 			</table>
 			</div>
+
 			<input class="form-control" type="hidden" value="<?php echo $this->session->userdata('nama_user')?>" id="namauser" name="namauser" readonly>
 			<div class="col-md-12 form-group">
 	        		<textarea name="materitambahan" class="form-control" rows="4" placeholder="Materi Tambahan" ></textarea>
