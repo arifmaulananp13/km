@@ -64,8 +64,6 @@ class Login extends CI_Controller{
 	public function getvalue(){
 	$data['data']=$this->m_login->value();
 	$this->load->view('header',$data);
-		
-	
 	}
 	
 

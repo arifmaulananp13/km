@@ -18,7 +18,7 @@
     <div class="wrapper">
       <header class="main-header">
         <a href="{l_home}" class="logo">
-          <span class="logo-lg"><b>K</b>M</span>
+          <span class="logo-lg"></span>
         </a>
 
         <nav class="navbar navbar-static-top" role="navigation">
