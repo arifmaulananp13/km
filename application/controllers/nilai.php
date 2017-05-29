@@ -110,7 +110,6 @@ class nilai extends CI_Controller {
 		}
 
 		//BARU
-
 		public function perbandingan_nilai_akhir(){
 				$data['title'] = "Table Perbandingan";
 				$data['matkul'] = $this->combobox_model->getMatkulAll();
@@ -126,6 +125,52 @@ class nilai extends CI_Controller {
 				$data['dosen1'] = $this->m_inputnilai->tampil_nilai_akhir_perdosen($dosen1, $matkul);
 				$data['dosen2'] = $this->m_inputnilai->tampil_nilai_akhir_perdosen($dosen2, $matkul);
 				view('nilai/lihat_perbandingan_nilai_akhir',$data);
+		}
+
+		public function filter_nilai_akhir(){
+				$data['title'] = "Filter";
+				$data['matkul'] = $this->combobox_model->getMatkulAll();
+				$data['dosen'] = $this->combobox_model->getDosen();
+
+				view('nilai/filter_nilai_akhir',$data);
+		}
+
+		public function lihat_filter_nilai_akhir()
+		{
+				$data['title'] = "Hasil Filter Nilai Akhir";
+				$dosen	= $this->input->post('dosen');
+				$matkul	= $this->m_inputnilai->getNamaMatkul($this->input->post('matkul'));
+
+				$kelas = $this->m_inputnilai->tampil_kelas_dosen($dosen,$matkul[0]->nama_matkul);
+				$output = '';
+
+				$t = $this->m_inputnilai->tampil_nilai_akhir($dosen, $matkul[0]->nama_matkul, $kelas[0]->kelas);
+
+				// for ($i=0; $i<sizeof($kelas); $i++) {
+				// 	$data['data'] = $this->m_inputnilai->tampil_nilai_akhir($dosen, $matkul[0]->nama_matkul, $kelas[$i]->kelas);
+				// 	var_dump($data);
+				// 	$output .= $this->load->view('nilai/lihat_nilai_akhir',$data,TRUE);
+				// }
+
+				for ($i=0; $i<sizeof($kelas); $i++) {
+					$hasilKelas = $this->m_inputnilai->tampil_nilai_akhir($dosen, $matkul[0]->nama_matkul, $kelas[$i]->kelas);
+					$hasil[] = $hasilKelas;
+				}
+				$data['data'] = $hasil;
+				// $data['data'] = $data['data'][0];
+				view('nilai/lihat_filter_nilai_akhir',$data);
+		}
+
+		public function pilihCombobox()
+		{
+				$input = $this->input->post('pilihan');
+				$matkul = $this->m_inputnilai->tampil_kelas($input);
+				$hasil = '';
+
+				foreach ($matkul as $m) {
+					$hasil .= "<option value=".$m->id_matkul.">".$m->nama_matkul."</option>";
+				}
+				echo $hasil;
 		}
 
 		//IF download/upload,

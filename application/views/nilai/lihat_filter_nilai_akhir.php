@@ -1,19 +1,12 @@
-
-<?php
-    foreach($data as $u){
-        $nama[] = $u->nama;
-        $uts[] = (float)$u->uts;
-        $uas[] = (float)$u->uas;
-    }
-?>
-
- <div class="content-wrapper">
+<div class="content-wrapper">
         <section class="content-header">
           <h1>
-            {title}
+              Hasil Filter
           </h1>
         </section>
         <section class="content">
+      <?php for ($i=0; $i < sizeof($data) ; $i++) {
+      ?>
 		  <div class="col-md-12 with-padding">
         <form class="box box-primary">
         	<div class="box-header with-border">
@@ -25,7 +18,7 @@
             <div class="col-md-12 form-group">
             <?php
             $no = 1;
-            foreach(array_slice($data,0,1) as $u){
+            foreach(array_slice($data[$i],0,1) as $u){
             ?>
               <p>Dosen : <?php echo $u->dosen ?></p>
               <p>Matakuliah : <?php echo $u->matkul ?></p>
@@ -48,7 +41,7 @@
 			</tr>
 			<?php
 			$no = 1;
-			foreach($data as $u){
+			foreach($data[$i] as $u){
 			?>
 			<tr>
 				<td><?php echo $no++?></td>
@@ -59,9 +52,6 @@
 				<td><?php echo $u->tugas ?></td>
         <td><?php echo $u->total ?></td>
         <td><?php echo $u->grade ?></td>
-
-
-
 			</tr>
 			<?php } ?>
 			</table>
@@ -70,7 +60,7 @@
             <div class="col-md-12 form-group">
             <?php
             $no = 1;
-            foreach(array_slice($data,0,1) as $u){
+            foreach(array_slice($data[$i],0,1) as $u){
             ?>
               <p>Deskripsi : <?php echo $u->deskripsi ?></p>
             <?php } ?>
@@ -78,15 +68,26 @@
         	</div>
         </form>
         </div>
+        <?php
+        } ?>
         </section>
 	</div>
-  
+
+
+  <?php for ($i=0; $i < sizeof($data) ; $i++) {
+    foreach($data[$i] as $u){
+        $nama[] = $u->nama;
+        $uts[] = (float)$u->uts;
+        $uas[] = (float)$u->uas;
+    }
+  ?>
+
  	<div class="content-wrapper">
-          <canvas id="myChart" width="400" height="200"></canvas>
+          <canvas id="myChart<?php echo $i?>" width="400" height="200"></canvas>
   </div>
 
   <script>
-     var ctx = document.getElementById("myChart");
+     var ctx = document.getElementById("myChart<?php echo $i?>");
      var myChart = new Chart(ctx, {
          type: 'bar',
          data: {
@@ -146,3 +147,5 @@
          }
      });
  </script>
+ <?php
+ } ?>

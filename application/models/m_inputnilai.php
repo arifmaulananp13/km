@@ -65,4 +65,60 @@ class M_inputnilai extends CI_Model{
 			 return false;
 		 }
 	 }
+
+	 function getNamaMatkul($id)
+	 {
+				$this->db-> select('nama_matkul');
+				$this->db-> from('table_matkul');
+				$this->db-> where('id_matkul', $id);
+
+				$query = $this -> db -> get();
+
+				if($query -> num_rows() > 0)
+				{
+				 return $query->result();
+				}
+				else
+				{
+				 return false;
+				}
+	 }
+	 function tampil_kelas($dosen)
+	 {
+		 $this->db-> select('*');
+		 $this->db-> from('input_jadwal');
+		 $this->db-> where('dosen', $dosen);
+	   $this->db->join('table_matkul', 'table_matkul.nama_matkul=input_jadwal.matkul', 'left');
+		 $this->db->group_by('input_jadwal.matkul');
+		 $query = $this -> db -> get();
+
+		 if($query -> num_rows() > 0)
+		 {
+		 	return $query->result();
+		 }
+		 else
+		 {
+		 	return false;
+		 }
+	 }
+
+	 function tampil_kelas_dosen($dosen,$matkul)
+	 {
+		$this->db-> select('kelas');
+		$this->db-> from('input_jadwal');
+		$this->db-> where('dosen', $dosen);
+		$this->db->where('matkul',$matkul);
+
+		$query = $this -> db -> get();
+
+		if($query -> num_rows() > 0)
+		{
+		 return $query->result();
+		}
+		else
+		{
+		 return false;
+		}
+	}
+
 }

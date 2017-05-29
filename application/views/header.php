@@ -99,6 +99,13 @@
             <li class="{active_9}"><a href="<?php echo base_url(). 'nilai/lihat_nilai'; ?>"><i class="fa fa-circle-o"></i><span>Lihat Nilai Harian</span></a></li>
             <li class="{active_10}"><a href="<?php echo base_url(). 'nilai/pre_nilai_akhir'; ?>"><i class="fa fa-circle-o"></i><span>Lihat Nilai Akhir</span></a></li>
             <li class="{active_11}"><a href="<?php echo base_url(). 'nilai/perbandingan_nilai_akhir'; ?>"><i class="fa fa-circle-o"></i><span>Lihat Nilai Perbandingan</span></a></li>
+            <?php if(($this->session->userdata('level') == 'Dekan') || ($this->session->userdata('level') == 'Wakil Dekan') || ($this->session->userdata('level') == 'Kaprodi'))
+            {
+            ?>
+              <li class="{active_12}"><a href="<?php echo base_url(). 'nilai/filter_nilai_akhir'; ?>"><i class="fa fa-circle-o"></i><span>Lihat Filter Nilai</span></a></li>
+            <?php
+            }
+            ?>
         </ul>
 			</li>
 			<li class="{active_7}"><a href="<?php echo base_url('baprps/forum'); ?>"><i class="fa fa-comments"></i><span>Forum</span></a></li>
@@ -111,6 +118,24 @@
       <script src="{js_bs}"></script>
       <script src="{js_app}"></script>
       <script src="{js_slimscroll}"></script>
+
+      <script>
+      $(document).ready(function(){
+        $("#pilihan").change(function(){
+            var pilihan = $("#pilihan").val();
+            debugger
+            $.ajax({
+              type : "POST",
+              url  : "<?php echo base_url().'nilai/pilihCombobox'?>",
+              data : {pilihan: pilihan},
+              success: function(data){
+                // console.log(data);
+                $('#hasilPilih').append(data);
+              }
+            });
+        });
+      });
+    </script>
 
 
 	  </html>
