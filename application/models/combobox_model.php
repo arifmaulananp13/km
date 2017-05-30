@@ -84,7 +84,7 @@ class Combobox_model extends CI_Model {
 		$query->free_result();
 		return $data;
 	}
-	
+
 	function getPertemuanAll() {
 		$data = array();
 		$query = $this->db->get('table_pertemuan');
@@ -96,7 +96,7 @@ class Combobox_model extends CI_Model {
 		$query->free_result();
 		return $data;
 	}
-	
+
 	function getKode($idMatkul) {
 		$data = array();
 		$query = $this->db->get_where('table_kodematkul', array('nama_matkul' => $idMatkul));
@@ -104,9 +104,9 @@ class Combobox_model extends CI_Model {
 			foreach ($query->result_array() as $row){
 		         	$data[] = $row;
 		        }
-		}	
+		}
 		$query->free_result();
-		return $data;	
+		return $data;
 	}
 
 	function getMatkul($dosen) {
@@ -116,10 +116,10 @@ class Combobox_model extends CI_Model {
 			foreach ($query->result_array() as $row){
 		         	$data[] = $row;
 		        }
-		}	
+		}
 		$query->free_result();
-		return $data;	
-	}	
+		return $data;
+	}
 
 	function getKelas($matkul) {
 		$data = array();
@@ -128,9 +128,22 @@ class Combobox_model extends CI_Model {
 			foreach ($query->result_array() as $row){
 		         	$data[] = $row;
 		        }
-		}	
+		}
 		$query->free_result();
-		return $data;	
+		return $data;
+	}
+
+//perbandingan_nilai_akhir
+	function getDosenper($idMatkul) {
+		$data = array();
+		$query = $this->db->get_where('input_jadwal', array('matkul' => $idMatkul));
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $row){
+							$data[] = $row;
+						}
+		}
+		$query->free_result();
+		return $data;
 	}
 
 

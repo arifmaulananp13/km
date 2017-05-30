@@ -113,7 +113,6 @@ class nilai extends CI_Controller {
 		public function perbandingan_nilai_akhir(){
 				$data['title'] = "Table Perbandingan";
 				$data['matkul'] = $this->combobox_model->getMatkulAll();
-				$data['dosen'] = $this->combobox_model->getDosen();
 				view('nilai/perbandingan_nilai_akhir',$data);
 		}
 

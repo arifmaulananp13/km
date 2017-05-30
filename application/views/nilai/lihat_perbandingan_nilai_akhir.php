@@ -35,9 +35,6 @@
         <th>TUGAS</th>
         <th>TOTAL</th>
         <th>GRADE</th>
-
-
-
 			</tr>
 			<?php
 			$no = 1;
