@@ -95,8 +95,6 @@ class nilai extends CI_Controller {
 	public function pre_nilai_akhir(){
 		$data['title'] = "Table";
 		$data['dosen'] = $this->combobox_model->getDosen();
-		$data['matkul'] = $this->combobox_model->getMatkulAll();
-		$data['kelas'] = $this->combobox_model->getKelasAll();
 		view('nilai/pre_nilai_akhir',$data);
 		}
 

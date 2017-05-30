@@ -121,9 +121,9 @@ class Combobox_model extends CI_Model {
 		return $data;
 	}
 
-	function getKelas($matkul) {
+	function getKelas($idMatkul) {
 		$data = array();
-		$query = $this->db->get_where('input_jadwal', array('kode_matkul' => $matkul));
+		$query = $this->db->get_where('input_jadwal', array('matkul' => $idMatkul));
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $row){
 		         	$data[] = $row;
@@ -145,6 +145,5 @@ class Combobox_model extends CI_Model {
 		$query->free_result();
 		return $data;
 	}
-
 
 }
