@@ -19,7 +19,6 @@ class Baprps extends CI_Controller {
 		$dosen = $this->session->userdata('nama_user');
 		$where = array('dosen' => $dosen);
 		$data['data'] = $this->m_inputbap->verif_data($where,'input_jadwal')->result();
-		$data['pertemuan'] = $this->combobox_model->getPertemuanAll();		
 		view('rpsbap/input_bap',$data);
 		}
 		elseif($this->session->userdata('level') == 'Mahasiswa'){
@@ -42,8 +41,8 @@ class Baprps extends CI_Controller {
 		$data['title'] = "Input BAP";
 		$where = array('id_jadwal' => $id);
 		$data['data'] = $this->m_inputbap->verif_data($where,'input_jadwal')->result();
-		$pertemuan = $this->input->post('pertemuan');
-		$data['kode_matkul'] = $this->m_inputbap->getrps($kode_matkul,$pertemuan)->result();
+		$data['kode_matkul'] = $this->m_inputbap->getrps($kode_matkul)->result();
+		$data['pertemuan'] = $this->combobox_model->getPertemuanAll();
 		view('rpsbap/input_bap2',$data);	
 	}
 
