@@ -17,11 +17,7 @@
 			<?php } ?>
         	</div>
         	<div class="box-body">
-            <div class="col-md-12 form-group">
-				<div class="col-md-2 form-group">
-
-				</div>
-			<div class="col-md-12 form-group">
+            <div class="col-md-12" form-group>
         	<table class="table table-bordered">
 			<tr>
 				<th>No</th>
@@ -42,19 +38,14 @@
 				<td><?php echo $u->hari ?></td>
 				<td><?php echo $u->shift ?></td>
 				<td><?php echo $u->ruangan ?></td>
-				<td>
-				<select name="pertemuan" id="pertemuan" class="form-control" required="">
-                  <option disabled="" selected="">Pertemuan</option>
-				  <?php foreach($pertemuan as $p){ ?>
-				  <option value="<?php echo $p['pertemuan']; ?>"><?php echo $p['pertemuan']; ?></option>
-				  <?php } ?>
-                </select>				
-				</td>
-				<td><a href="<?php echo base_url('baprps/input_bap2/'.$u->id_jadwal.'/'.$u->kode_matkul); ?>" method="post" type="submit" class="btn btn-default btn-flat">Input BAP</a></td>	
+				<td><a href="<?php echo base_url('baprps/input_bap2/'.$u->id_jadwal.'/'.$u->kode_matkul); ?>" type="submit" class="btn btn-default btn-flat">Input BAP</a></td>
+				
 			</tr>
-				<?php } ?>			
+			<?php } ?>
 			</table>
+
             </div>
+
         	</div>
         </form>
         </div>

@@ -45,7 +45,15 @@
 						<td>: <?php echo $u->ruangan ?></td>
 					</tr>
 					<?php } ?>
-			</table>	
+			</table>
+					<div>
+				<select name="pertemuan" id="pertemuan" class="form-control" required="">
+                  <option disabled="" selected="">Pertemuan</option>
+				  <?php foreach($pertemuan as $p){ ?>
+				  <option value="<?php echo $p['pertemuan']; ?>"><?php echo $p['pertemuan']; ?></option>
+				  <?php } ?>
+                </select>
+					</div>	
 					<br>
 	        		<div class="input-group">
 		        		<span class="input-group-addon">
