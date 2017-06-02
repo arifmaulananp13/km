@@ -182,8 +182,6 @@ class Baprps extends CI_Controller {
 		$data['title'] = "Table";
 		$data['active_5'] = "active";
 		$data['dosen'] = $this->combobox_model->getDosen();
-		$data['matkul'] = $this->combobox_model->getMatkulAll();
-		$data['kelas'] = $this->combobox_model->getKelasAll();
 		view('rpsbap/1objek',$data);
 		}		
 		elseif($this->session->userdata('level') == 'Mahasiswa'){
