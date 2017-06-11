@@ -83,7 +83,6 @@
 				<li><a href="<?php echo base_url('baprps/perpertemuan'); ?>"><i class="fa fa-circle-o"></i> Per Pertemuan</a></li>
                 </ul>
 			</li>
-			<li class="{active_13}"><a href="<?php echo base_url('baprps/chart'); ?>"><i class="fa fa-circle-o"></i><span>Grafik</span></a></li>
 			</ul>
 			</li>
 			<li class="treeview">
@@ -106,6 +105,17 @@
             <?php
             }
             ?>
+        </ul>
+			</li>
+			<li class="treeview">
+			  <a href="#">
+				<i class="fa fa-folder"></i> <span>Metode Ajar</span>
+				<span class="pull-right-container">
+				  <i class="fa fa-angle-left pull-right"></i>
+				</span>
+			  </a>
+			<ul class="treeview-menu">
+            <li><a href="<?php echo base_url(). 'Metode/input_metode'; ?>"><i class="fa fa-circle-o"></i><span>Input Metode Ajar</span></a></li>
         </ul>
 			</li>
 			<li class="{active_7}"><a href="<?php echo base_url('baprps/forum'); ?>"><i class="fa fa-comments"></i><span>Forum</span></a></li>
