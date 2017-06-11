@@ -84,7 +84,6 @@ class Baprps extends CI_Controller {
 		}
     }
 
-
 	public function verif_bap(){
 		if ($this->session->userdata('level') == 'Mahasiswa'){
 		$data['title'] = "Verifikasi BAP";
@@ -131,7 +130,6 @@ class Baprps extends CI_Controller {
 	}
 	}
 	
-     
 
 	public function grafik(){
 		if ($this->session->userdata('level') == 'Dosen Koordinator'){
@@ -266,10 +264,6 @@ class Baprps extends CI_Controller {
 		view('rpsbap/per_pertemuan_detail',$data);
 	}	
 	
-		
-
-
-		
 
 	public function jadwal(){
 		if ($this->session->userdata('level') == 'Sekretaris Kaprodi'){
@@ -335,7 +329,6 @@ class Baprps extends CI_Controller {
 			redirect($_SERVER['HTTP_REFERER']);
 		}
     }
-	
 	
 	public function verif2($id,$kode_matkul){
 		$data['title'] = "Verifikasi BAP";
