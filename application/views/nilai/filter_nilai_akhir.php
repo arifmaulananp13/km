@@ -16,16 +16,19 @@
                             <select name="dosen" id="pilihan" class="form-control" required="">
                               <option disabled="" selected="">Dosen</option>
                               <?php foreach($dosen as $d) {?>
-                              <option value="<?php echo $d['nama_dosen']; ?>"><?php echo $d['nama_dosen']; ?></option>
+                              <option value="<?php echo $d['dosen']; ?>"><?php echo $d['dosen']; ?></option>
                               <?php } ?>
                             </select>
                         </div>
+                              <div class="col-md-12 form-group">
+                                  <select name="matkul" id="matkul" class="form-control" required="">
+                                  <option disabled="" selected="">Mata Kuliah</option>
+                                  <?php foreach($matkul as $m) {?>
+                                  <option value="<?php echo $m['id_matkul']; ?>"><?php echo $m['matkul']; ?></option>
+                                  <?php } ?>
+                                  </select>
+                              </div>
 
-                        <div class="col-md-12 form-group">
-                            <select id="hasilPilih" class="form-control" required="" name="matkul">
-                              <option disabled="" selected="">Pilih</option>
-                            </select>
-                        </div>
 
                         <div class="col-md-12 form-group">
                             <button name="mysubmit" class="btn btn-primary pull-left btn-flat" type="submit">Show Record</button>

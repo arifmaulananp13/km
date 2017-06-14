@@ -138,10 +138,10 @@ class nilai extends CI_Controller {
 				$dosen	= $this->input->post('dosen');
 				$matkul	= $this->m_inputnilai->getNamaMatkul($this->input->post('matkul'));
 
-				$kelas = $this->m_inputnilai->tampil_kelas_dosen($dosen,$matkul[0]->nama_matkul);
+				$kelas = $this->m_inputnilai->tampil_kelas_dosen($dosen,$matkul[0]->matkul);
 				$output = '';
 
-				$t = $this->m_inputnilai->tampil_nilai_akhir($dosen, $matkul[0]->nama_matkul, $kelas[0]->kelas);
+				$t = $this->m_inputnilai->tampil_nilai_akhir($dosen, $matkul[0]->matkul, $kelas[0]->kelas);
 
 				// for ($i=0; $i<sizeof($kelas); $i++) {
 				// 	$data['data'] = $this->m_inputnilai->tampil_nilai_akhir($dosen, $matkul[0]->nama_matkul, $kelas[$i]->kelas);
@@ -150,7 +150,7 @@ class nilai extends CI_Controller {
 				// }
 
 				for ($i=0; $i<sizeof($kelas); $i++) {
-					$hasilKelas = $this->m_inputnilai->tampil_nilai_akhir($dosen, $matkul[0]->nama_matkul, $kelas[$i]->kelas);
+					$hasilKelas = $this->m_inputnilai->tampil_nilai_akhir($dosen, $matkul[0]->matkul, $kelas[$i]->kelas);
 					$hasil[] = $hasilKelas;
 				}
 				$data['data'] = $hasil;
@@ -165,11 +165,55 @@ class nilai extends CI_Controller {
 				$hasil = '';
 
 				foreach ($matkul as $m) {
-					$hasil .= "<option value=".$m->id_matkul.">".$m->nama_matkul."</option>";
+					$hasil .= "<option value=".$m->id_matkul.">".$m->matkul."</option>";
 				}
 				echo $hasil;
 		}
 
+		//buat monitor_nilai
+		public function monitor(){
+			if ($this->session->userdata('level') == 'Dosen Koordinator'){
+			$data['title'] = "Table";
+			$data['active_5'] = "active";
+			$data['dosen'] = $this->combobox_model->getDosen();
+			$data['matkul'] = $this->combobox_model->getMatkulAll();
+			$data['kelas'] = $this->combobox_model->getKelasAll();
+			view('nilai/monitor_nilai',$data);
+			}
+			elseif($this->session->userdata('level') == 'Mahasiswa'){
+			redirect('baprps/verif_bap');
+			}
+			elseif($this->session->userdata('level') == 'Dosen Pengajar'){
+			redirect('baprps/input_bap');
+			}
+			elseif($this->session->userdata('level') == 'Sekretaris Kaprodi'){
+			redirect('baprps/forum');
+			}
+			elseif($this->session->userdata('level') == 'Belum Aktif'){
+			redirect('baprps/forum');
+			}
+			else{
+			$data['title'] = "Table";
+			$data['active_5'] = "active";
+			$data['dosen'] = $this->combobox_model->getDosen();
+			$data['matkul'] = $this->combobox_model->getMatkulAll();
+			$data['kelas'] = $this->combobox_model->getKelasAll();
+			view('nilai/monitor_nilai',$data);
+			}
+			}
+
+			public function aksi_monitor(){
+			$data['title'] = "Table";
+			$dosen	= $this->input->post('dosen');
+			$matkul	= $this->input->post('matkul');
+			$kelas	= $this->input->post('kelas');
+			$data['data'] = $this->m_inputnilai->tampil_monitor($dosen, $matkul, $kelas);
+			$dosen1		= $this->input->post('dosen1');
+			$matkul1	= $this->input->post('matkul1');
+			$kelas1		= $this->input->post('kelas1');
+			$data['data1'] = $this->m_inputnilai->tampil_monitor1($dosen1, $matkul1, $kelas1);
+			view('nilai/monitor_nilai2',$data);
+			}
 		//IF download/upload,
 	public function download($fileName = NULL) {
 	$this->load->helper('download');

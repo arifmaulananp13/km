@@ -108,6 +108,7 @@
             ?>
         </ul>
 			</li>
+      <li class="{active_7}"><a href="<?php echo base_url('nilai/monitor'); ?>"><i class="fa fa-circle-o"></i><span>Monitoring</span></a></li>
 			<li class="{active_7}"><a href="<?php echo base_url('baprps/forum'); ?>"><i class="fa fa-comments"></i><span>Forum</span></a></li>
 			<li class="{active_12}"><a href="<?php echo base_url('baprps/edit'); ?>"><i class="fa fa-list"></i><span>User Management</span></a></li>
 		  </ul>
