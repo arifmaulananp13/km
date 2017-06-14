@@ -12,13 +12,12 @@ class Metode extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 	}
-	
+
 public function input_metode(){
 		if ($this->session->userdata('level') == 'Sekretaris Kaprodi'){
 		$data['title'] = "Input Metode";
 		$data['pertemuan'] = $this->combobox_model->getPertemuanAll();
-		$data['data'] = $this->combobox_model->getMatkulAll();
-		
+		$data['data'] = $this->combobox_model->getMetodeAll();
 		view('metodeview/input_metode',$data);
 		}
 		elseif($this->session->userdata('level') == 'Mahasiswa'){
@@ -31,7 +30,7 @@ public function input_metode(){
 		redirect('baprps/forum');
 		}
 		else{
-		redirect('baprps/grafik');	
+		redirect('baprps/grafik');
 		}
 	}
 }
