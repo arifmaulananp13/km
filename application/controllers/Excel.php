@@ -42,7 +42,8 @@ class Excel extends CI_Controller {
                 // echo '<pre>';
                 // var_dump($media);
                 // echo $inputFileName;
-                die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+			$this->session->set_flashdata('category_error', 'File Tidak Sesuai!');
+			redirect($_SERVER['HTTP_REFERER']);
             }
 
             $sheet = $objPHPExcel->getSheet(0);

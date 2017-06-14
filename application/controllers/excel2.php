@@ -39,7 +39,7 @@ class Excel2 extends CI_Controller {
         $fileName = time().$_FILES['file']['name'];
         $config['upload_path'] = FCPATH.'upload/rps/'; //buat folder dengan nama assets di root folder
         $config['file_name'] = $fileName;
-        $config['allowed_types'] = 'xls|xlsx|csv';
+        $config['allowed_types'] = 'xls|xlsx';
         $config['max_size'] = 10000;
 
         $this->load->library('upload');
@@ -59,7 +59,9 @@ class Excel2 extends CI_Controller {
                 // echo '<pre>';
                 // var_dump($media);
                 // echo $inputFileName;
-                die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+
+			$this->session->set_flashdata('category_error', 'File Tidak Sesuai!');
+			redirect($_SERVER['HTTP_REFERER']);
             }
 
             $sheet = $objPHPExcel->getSheet(0);
