@@ -72,7 +72,10 @@ foreach(array_slice($data1,0,1) as $i){
 <tr>
 <th>Grade</th>
 </tr>
+
+
 <?php
+
 foreach($data1 as $i){
 ?>
 <tr>
@@ -82,8 +85,8 @@ foreach($data1 as $i){
   print_r(array_count_values($array));
   ?>
 </td>
-</tr>
 <?php } ?>
+</tr>
 </table>
       </div>
 
