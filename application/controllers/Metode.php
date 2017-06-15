@@ -17,7 +17,8 @@ public function input_metode(){
 		if ($this->session->userdata('level') == 'Sekretaris Kaprodi'){
 		$data['title'] = "Input Metode";
 		$data['pertemuan'] = $this->combobox_model->getPertemuanAll();
-		$data['data'] = $this->combobox_model->getMetodeAll();
+		$data['data'] = $this->combobox_model->getMatkulAll();
+		
 		view('metodeview/input_metode',$data);
 		}
 		elseif($this->session->userdata('level') == 'Mahasiswa'){
