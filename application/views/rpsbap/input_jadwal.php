@@ -29,7 +29,7 @@
               <select name="dosen" id="dosen" class="form-control" required>
                   <option disabled="" selected="">Dosen</option>
 				  <?php foreach($dosen as $d){ ?>
-				  <option value="<?php echo $d['nama_dosen']; ?>"><?php echo $d['nama_dosen']; ?></option>
+				  <option value="<?php echo $d['dosen']; ?>"><?php echo $d['dosen']; ?></option>
 				  <?php } ?>
                 </select>
             </div>

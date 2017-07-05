@@ -11,7 +11,7 @@ class Excel2 extends CI_Controller {
         $this->load->library('form_validation');
     }
 	public function input_rps(){
-		if ($this->session->userdata('level') == 'Sekretaris Kaprodi'){
+		if ($this->session->userdata('level') == 'Dosen Koordinator'){
 		$data['title'] = "Input RPS";
 		$data['active_3'] = "active";
 		view('rpsbap/input_rps',$data);
@@ -80,7 +80,8 @@ class Excel2 extends CI_Controller {
                     
                     "PERTEMUAN"=> $rowData[0][0],
                     "MATERI"=> $rowData[0][1],
-                    "MATKUL"=> $rowData[0][2]
+                    "MATKUL"=> $rowData[0][2],
+					"kode_matkul"=> $rowData[0][3]
                 );
 
 
